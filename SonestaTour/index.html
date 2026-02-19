@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonesta Tour — Туры по всему миру | Онлайн бронирование</title>
+    <meta name="description" content="Sonesta Tour — туристическое агентство. Туры, отели, круизы, авиабилеты. Горящие туры и лучшие предложения.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="logo">
+                        <h1>Sonesta Tour</h1>
+                    </div>
+                    <div class="header-contacts">
+                        <a href="tel:+79217558852" class="phone">+7 (921) 755-88-52</a>
+                        <a href="mailto:info@sonestatour.ru" class="email">info@sonestatour.ru</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="tours.html">Туры</a></li>
+                    <li><a href="hotels.html">Отели</a></li>
+                    <li><a href="cruises.html">Круизы</a></li>
+                    <li><a href="flights.html">Авиабилеты</a></li>
+                    <li><a href="promotions.html">Акции</a></li>
+                    <li><a href="offices.html">Офисы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Search -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Найдите свой идеальный отдых</h2>
+                <p class="hero-subtitle">Более 100 направлений по всему миру</p>
+                
+                <div class="search-form-wrapper">
+                    <form class="search-form" id="tour-search">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Откуда</label>
+                                <select name="origin" class="form-control">
+                                    <option value="">Выберите город</option>
+                                    <option value="moscow">Москва</option>
+                                    <option value="spb">Санкт-Петербург</option>
+                                    <option value="ekb">Екатеринбург</option>
+                                    <option value="kazan">Казань</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Куда</label>
+                                <input type="text" name="destination" class="form-control" placeholder="Страна, город или отель">
+                            </div>
+                            <div class="form-group">
+                                <label>Дата вылета</label>
+                                <input type="date" name="date_from" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Ночей</label>
+                                <select name="nights" class="form-control">
+                                    <option value="">Любое</option>
+                                    <option value="3">3 ночи</option>
+                                    <option value="5">5 ночей</option>
+                                    <option value="7">7 ночей</option>
+                                    <option value="10">10 ночей</option>
+                                    <option value="14">14 ночей</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Туристы</label>
+                                <select name="people" class="form-control">
+                                    <option value="2">2 взрослых</option>
+                                    <option value="1">1 взрослый</option>
+                                    <option value="3">3 взрослых</option>
+                                    <option value="4">4 взрослых</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn-search">Найти туры</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="quick-links-grid">
+                <a href="#hot-tours" class="quick-link">
+                    <span class="icon">🔥</span>
+                    <span class="text">Горящие туры</span>
+                </a>
+                <a href="#early-booking" class="quick-link">
+                    <span class="icon">📅</span>
+                    <span class="text">Раннее бронирование</span>
+                </a>
+                <a href="#last-minute" class="quick-link">
+                    <span class="icon">⚡</span>
+                    <span class="text">Last minute</span>
+                </a>
+                <a href="#certificates" class="quick-link">
+                    <span class="icon">🎁</span>
+                    <span class="text">Подарочные сертификаты</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section class="popular-destinations" id="tours">
+        <div class="container">
+            <h2 class="section-title">Популярные направления</h2>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/ТурцияАнталия.jpg')">
+                        <div class="destination-overlay"></div>
+                        <div class="destination-info">
+                            <h3>Турция</h3>
+                            <p class="destination-price">от 45 000 ₽</p>
+                            <p class="destination-desc">Анталия, Кемер, Бодрум</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/ЕгипетХургада.jpg')">
+                        <div class="destination-overlay"></div>
+                        <div class="destination-info">
+                            <h3>Египет</h3>
+                            <p class="destination-price">от 55 000 ₽</p>
+                            <p class="destination-desc">Хургада, Шарм-эль-Шейх</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/Дубай ОАЭ.jpg')">
+                        <div class="destination-overlay"></div>
+                        <div class="destination-info">
+                            <h3>ОАЭ</h3>
+                            <p class="destination-price">от 85 000 ₽</p>
+                            <p class="destination-desc">Дубай, Абу-Даби</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/Тай Пхукет.jpg')">
+                        <div class="destination-overlay"></div>
+                        <div class="destination-info">
+                            <h3>Таиланд</h3>
+                            <p class="destination-price">от 95 000 ₽</p>
+                            <p class="destination-desc">Пхукет, Паттайя, Самуи</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/Мальдивы.jpg')">
+                        <div class="destination-overlay"></div>
+                        <div class="destination-info">
+                            <h3>Мальдивы</h3>
+                            <p class="destination-price">от 180 000 ₽</p>
+                            <p class="destination-desc">Райский отдых</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/ИспанияКоста.jpg')">
+                        <div class="destination-overlay"></div>
+                        <div class="destination-info">
+                            <h3>Испания</h3>
+                            <p class="destination-price">от 75 000 ₽</p>
+                            <p class="destination-desc">Коста-Брава, Коста-дель-Соль</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hot Tours -->
+    <section class="hot-tours" id="hot-tours">
+        <div class="container">
+            <h2 class="section-title">🔥 Горящие туры</h2>
+            <div class="tours-grid">
+                <div class="tour-card">
+                    <div class="tour-badge">-25%</div>
+                    <div class="tour-image" style="background-image: url('images/GrandHaberАнталия.jpg')"></div>
+                    <div class="tour-content">
+                        <h3>Турция, Анталия</h3>
+                        <p class="tour-hotel">Отель Grand Kemer 5*</p>
+                        <div class="tour-details">
+                            <span>7 ночей</span>
+                            <span>Всё включено</span>
+                        </div>
+                        <div class="tour-price">
+                            <span class="old-price">65 000 ₽</span>
+                            <span class="new-price">48 750 ₽</span>
+                        </div>
+                        <a href="contacts.html" class="btn-tour">Забронировать</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-badge">-30%</div>
+                    <div class="tour-image" style="background-image: url('images/ХургадаGrandResort.jpg')"></div>
+                    <div class="tour-content">
+                        <h3>Египет, Хургада</h3>
+                        <p class="tour-hotel">Отель Grand Resort 5*</p>
+                        <div class="tour-details">
+                            <span>10 ночей</span>
+                            <span>Всё включено</span>
+                        </div>
+                        <div class="tour-price">
+                            <span class="old-price">85 000 ₽</span>
+                            <span class="new-price">59 500 ₽</span>
+                        </div>
+                        <a href="contacts.html" class="btn-tour">Забронировать</a>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-badge">-20%</div>
+                    <div class="tour-image" style="background-image: url('images/ДубайBurjAlArab.jpg')"></div>
+                    <div class="tour-content">
+                        <h3>ОАЭ, Дубай</h3>
+                        <p class="tour-hotel">Отель Burj Al Arab 7*</p>
+                        <div class="tour-details">
+                            <span>5 ночей</span>
+                            <span>Завтрак</span>
+                        </div>
+                        <div class="tour-price">
+                            <span class="old-price">120 000 ₽</span>
+                            <span class="new-price">96 000 ₽</span>
+                        </div>
+                        <a href="contacts.html" class="btn-tour">Забронировать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions -->
+    <section class="promotions" id="promotions">
+        <div class="container">
+            <h2 class="section-title">Специальные предложения</h2>
+            <div class="promotions-grid">
+                <div class="promotion-card promotion-large" id="early-booking">
+                    <div class="promotion-content">
+                        <h3>Раннее бронирование</h3>
+                        <p>Забронируйте тур заранее и получите скидку до 15%</p>
+                        <a href="promotions.html" class="btn-promotion">Подробнее</a>
+                    </div>
+                </div>
+                <div class="promotion-card" id="certificates">
+                    <div class="promotion-content">
+                        <h3>Подарочные сертификаты</h3>
+                        <p>Подарите незабываемый отдых</p>
+                        <a href="contacts.html" class="btn-promotion">Купить</a>
+                    </div>
+                </div>
+                <div class="promotion-card" id="last-minute">
+                    <div class="promotion-content">
+                        <h3>Рассрочка 0%</h3>
+                        <p>Оплата тура в рассрочку без переплат</p>
+                        <a href="contacts.html" class="btn-promotion">Узнать больше</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">О компании Sonesta Tour</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Sonesta Tour — ведущее туристическое агентство, специализирующееся на организации незабываемых путешествий по всему миру. Мы предлагаем широкий выбор туров, отелей, круизов и авиабилетов.</p>
+                    <p>Наша команда профессионалов поможет вам подобрать идеальный отдых с учётом всех ваших пожеланий и бюджета. Мы работаем только с проверенными партнёрами и гарантируем высокое качество обслуживания.</p>
+                    <ul class="about-features">
+                        <li>✅ Более 10 лет на рынке туризма</li>
+                        <li>✅ 100+ направлений по всему миру</li>
+                        <li>✅ Лучшие цены и специальные предложения</li>
+                        <li>✅ Круглосуточная поддержка клиентов</li>
+                        <li>✅ Онлайн бронирование 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <h3>Офис в Санкт-Петербурге</h3>
+                    <p><strong>Адрес:</strong> г. Санкт-Петербург, ул. Доблести, 26</p>
+                    <p><strong>Телефон:</strong> <a href="tel:+79217558852">+7 (921) 755-88-52</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@sonestatour.ru">info@sonestatour.ru</a></p>
+                    <p><strong>Режим работы:</strong> Пн-Пт: 10:00-20:00, Сб-Вс: 11:00-18:00</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Напишите нам</h3>
+                    <form class="contact-form" action="#" method="post" novalidate>
+                        <label>Имя
+                            <input class="form-control" type="text" name="name" placeholder="Ваше имя">
+                        </label>
+                        <label>Email
+                            <input class="form-control" type="email" name="email" placeholder="you@example.com">
+                        </label>
+                        <label>Телефон
+                            <input class="form-control" type="tel" name="phone" placeholder="+7 (___) ___-__-__">
+                        </label>
+                        <label>Тема
+                            <select class="form-control" name="topic">
+                                <option>Вопрос по бронированию</option>
+                                <option>Изменение/отмена</option>
+                                <option>Техподдержка</option>
+                                <option>Предложения</option>
+                            </select>
+                        </label>
+                        <label>Сообщение
+                            <textarea class="form-control" name="message" rows="5" placeholder="Ваш запрос"></textarea>
+                        </label>
+                        <div style="margin-top:12px;">
+                            <button class="btn btn-primary" type="submit">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sonesta Tour</h3>
+                    <p>Ваш надёжный партнёр в мире путешествий</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="#tours">Туры</a></li>
+                        <li><a href="#hotels">Отели</a></li>
+                        <li><a href="#cruises">Круизы</a></li>
+                        <li><a href="#flights">Авиабилеты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="#about">О компании</a></li>
+                        <li><a href="#promotions">Акции</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                        <li><a href="#offices">Офисы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>+7 (921) 755-88-52</p>
+                    <p>info@sonestatour.ru</p>
+                    <p>СПб, ул. Доблести, 26</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sonesta Tour. Все права защищены.</p>
+                <div class="footer-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отели — Sonesta Tour</title>
+    <meta name="description" content="Отели от Sonesta Tour: подбор по категории, питанию и локации.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="logo">
+                        <h1><a class="logo-link" href="index.html">Sonesta Tour</a></h1>
+                    </div>
+                    <div class="header-contacts">
+                        <a href="tel:+79217558852" class="phone">+7 (921) 755-88-52</a>
+                        <a href="mailto:info@sonestatour.ru" class="email">info@sonestatour.ru</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="tours.html">Туры</a></li>
+                    <li><a class="is-active" href="hotels.html">Отели</a></li>
+                    <li><a href="cruises.html">Круизы</a></li>
+                    <li><a href="flights.html">Авиабилеты</a></li>
+                    <li><a href="promotions.html">Акции</a></li>
+                    <li><a href="offices.html">Офисы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="index.html">Главная</a>
+                    <span class="sep">/</span>
+                    <span>Отели</span>
+                </div>
+                <h2 class="page-title">Отели</h2>
+                <p class="page-subtitle">Подбор отелей по бюджету, рейтингу, питанию и расположению.</p>
+            </div>
+        </section>
+
+        <section class="page-content">
+            <div class="container">
+                <div class="content-grid">
+                    <article class="info-card">
+                        <h3>Семейные отели</h3>
+                        <p>Детские клубы, аквапарки, удобные номера и питание.</p>
+                        <div class="tag-row">
+                            <span class="tag">Kids</span>
+                            <span class="tag">Aqua</span>
+                            <span class="tag">AI</span>
+                        </div>
+                    </article>
+                    <article class="info-card">
+                        <h3>Adults only</h3>
+                        <p>Спокойный отдых, SPA, приватные пляжи и высокий сервис.</p>
+                        <div class="tag-row">
+                            <span class="tag">SPA</span>
+                            <span class="tag">Premium</span>
+                            <span class="tag">Beach</span>
+                        </div>
+                    </article>
+                    <article class="info-card">
+                        <h3>Городские отели</h3>
+                        <p>Локации рядом с достопримечательностями и транспортом.</p>
+                        <div class="tag-row">
+                            <span class="tag">City</span>
+                            <span class="tag">Center</span>
+                            <span class="tag">Business</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section> -->
+
+        <section class="hotels-showcase">
+            <div class="container">
+                <h2 class="section-title">Популярные отели</h2>
+                <p class="section-subtitle">Тщательно подобранные гостиницы от 2* до 7* для вашего комфорта</p>
+                
+                <!-- Luxury Hotels -->
+                <div class="hotels-category">
+                    <h3 class="category-title">✨ Премиум отели (5-7 звёзд)</h3>
+                    <div class="hotels-grid">
+                        <div class="hotel-card">
+                            <div class="hotel-image" style="background-image: url('images/ДубайBurjAlArab.jpg')"></div>
+                            <div class="hotel-stars">★★★★★★★</div>
+                            <h4>Burj Al Arab Dubai</h4>
+                            <p class="hotel-location">🌍 Дубай, ОАЭ</p>
+                            <div class="hotel-features">
+                                <span class="feature">🍽️ All Inclusive</span>
+                                <span class="feature">🏖️ Приватный пляж</span>
+                                <span class="feature">🏊 Бассейн</span>
+                            </div>
+                            <p class="hotel-description">Легендарный 7-звёздочный отель в форме паруса. Роскошные номера, мировой уровень сервиса, ресторан с 3 звёздами Мишлена.</p>
+                            <div class="hotel-price">от 85 000 ₽ / ночь</div>
+                            <a href="hotel-burj.html" class="btn btn-primary">Выбрать</a>
+                        </div>
+
+                        <div class="hotel-card">
+                            <div class="hotel-image" style="background-image: url('images/Мальдивы.jpg')"></div>
+                            <div class="hotel-stars">★★★★★★</div>
+                            <h4>Maldives Grand Resort</h4>
+                            <p class="hotel-location">🌍 Мальдивы</p>
+                            <div class="hotel-features">
+                                <span class="feature">🌴 Островной рай</span>
+                                <span class="feature">🏄 Водные спорты</span>
+                                <span class="feature">🍽️ Gourmet</span>
+                            </div>
+                            <p class="hotel-description">Шикарный курорт на частном острове. Водяные виллы, сноркелинг у самого номера, подводный спа.</p>
+                            <div class="hotel-price">от 95 000 ₽ / ночь</div>
+                            <a href="hotel-maldives.html" class="btn btn-primary">Выбрать</a>
+                        </div>
+
+                        <div class="hotel-card">
+                            <div class="hotel-image" style="background-image: url('images/ТурцияАнталия.jpg')"></div>
+                            <div class="hotel-stars">★★★★★★</div>
+                            <h4>Palace Grand Antalya</h4>
+                            <p class="hotel-location">🌍 Турция, Анталия</p>
+                            <div class="hotel-features">
+                                <span class="feature">💆 SPA & Wellness</span>
+                                <span class="feature">🎭 Развлечения</span>
+                                <span class="feature">👨‍👩‍👧‍👦 Семейный</span>
+                            </div>
+                            <p class="hotel-description">Популярный курортный отель с множеством развлечений. Детский клуб, аквапарк, ночные шоу, всё включено.</p>
+                            <div class="hotel-price">от 45 000 ₽ / ночь</div>
+                            <a href="hotel-palace-antalya.html" class="btn btn-primary">Выбрать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comfort Hotels -->
+                <div class="hotels-category">
+                    <h3 class="category-title">🏨 Комфортные отели (3-4 звезды)</h3>
+                    <div class="hotels-grid">
+                        <div class="hotel-card">
+                            <div class="hotel-image" style="background-image: url('images/ЕгипетХургада.jpg')"></div>
+                            <div class="hotel-stars">★★★★</div>
+                            <h4>Grand Plaza Hotel Cairo</h4>
+                            <p class="hotel-location">🌍 Египет, Каир</p>
+                            <div class="hotel-features">
+                                <span class="feature">📍 Центр города</span>
+                                <span class="feature">🚕 Трансфер</span>
+                                <span class="feature">📶 Wi-Fi</span>
+                            </div>
+                            <p class="hotel-description">Отличное соотношение цены и качества. Удобное расположение, рядом музеи, ресторан и кафе.</p>
+                            <div class="hotel-price">от 25 000 ₽ / ночь</div>
+                            <a href="hotel-cairo.html" class="btn btn-primary">Выбрать</a>
+                        </div>
+
+                        <div class="hotel-card">
+                            <div class="hotel-image" style="background-image: url('images/GrandHaberАнталия.jpg')"></div>
+                            <div class="hotel-stars">★★★★</div>
+                            <h4>Kemer Beach Resort</h4>
+                            <p class="hotel-location">🌍 Турция, Кемер</p>
+                            <div class="hotel-features">
+                                <span class="feature">🏖️ Пляж 50м</span>
+                                <span class="feature">🍽️ All Inclusive</span>
+                                <span class="feature">🏋️ Спортзал</span>
+                            </div>
+                            <p class="hotel-description">Семейный отель прямо на пляже. Питание включено, много развлечений для всей семьи.</p>
+                            <div class="hotel-price">от 28 000 ₽ / ночь</div>
+                            <a href="hotel-kemer.html" class="btn btn-primary">Выбрать</a>
+                        </div>
+
+                        <div class="hotel-card">
+                            <div class="hotel-image" style="background-image: url('images/Тай Пхукет.jpg')"></div>
+                            <div class="hotel-stars">★★★★</div>
+                            <h4>Phuket Sunset Inn</h4>
+                            <p class="hotel-location">🌍 Таиланд, Пхукет</p>
+                            <div class="hotel-features">
+                                <span class="feature">🌅 Вид на закат</span>
+                                <span class="feature">🍜 Thai Cuisine</span>
+                                <span class="feature">🧘 Йога</span>
+                            </div>
+                            <p class="hotel-description">Уютный отель с аутентичной атмосферой. Традиционная тайская кухня, спа, йога по утрам.</p>
+                            <div class="hotel-price">от 22 000 ₽ / ночь</div>
+                            <a href="hotel-phuket.html" class="btn btn-primary">Выбрать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Budget Hotels -->
+                <div class="hotels-category">
+                    <h3 class="category-title">💰 Бюджетные отели (2-3 звезды)</h3>
+                    <div class="hotels-grid">
+                        <div class="hotel-card">
+                            <div class="hotel-image" style="background-image: url('images/ИспанияКоста.jpg')"></div>
+                            <div class="hotel-stars">★★★</div>
+                            <h4>Economy Plaza Madrid</h4>
+                            <p class="hotel-location">🌍 Испания, Мадрид</p>
+                            <div class="hotel-features">
+                                <span class="feature">📍 Метро рядом</span>
+                                <span class="feature">🛏️ Чистые номера</span>
+                                <span class="feature">☕ Завтрак</span>
+                            </div>
+                            <p class="hotel-description">Хороший выбор для туристов, путешествующих на бюджет. Близко к достопримечательностям города.</p>
+                            <div class="hotel-price">от 12 000 ₽ / ночь</div>
+                            <a href="hotel-madrid.html" class="btn btn-primary">Выбрать</a>
+                        </div>
+
+                        <div class="hotel-card">
+                            <div class="hotel-image" style="background-image: url('images/ХургадаGrandResort.jpg')"></div>
+                            <div class="hotel-stars">★★★</div>
+                            <h4>Sharm Budget Resort</h4>
+                            <p class="hotel-location">🌍 Египет, Шарм-эль-Шейх</p>
+                            <div class="hotel-features">
+                                <span class="feature">🏖️ Пляж</span>
+                                <span class="feature">🤿 Дайвинг</span>
+                                <span class="feature">🍽️ Restaurant</span>
+                            </div>
+                            <p class="hotel-description">Доступный отель с хорошим расположением. Недалеко коралловые рифы для дайвинга.</p>
+                            <div class="hotel-price">от 15 000 ₽ / ночь</div>
+                            <a href="hotel-sharm.html" class="btn btn-primary">Выбрать</a>
+                        </div>
+
+                        <div class="hotel-card">
+                            <div class="hotel-image" style="background-image: url('images/Дубай ОАЭ.jpg')"></div>
+                            <div class="hotel-stars">★★</div>
+                            <h4>Bangkok Traveler Guesthouse</h4>
+                            <p class="hotel-location">🌍 Таиланд, Бангкок</p>
+                            <div class="hotel-features">
+                                <span class="feature">👥 Общая кухня</span>
+                                <span class="feature">🧑‍💻 Lounge</span>
+                                <span class="feature">🗺️ Туры</span>
+                            </div>
+                            <p class="hotel-description">Отличный выбор для молодых путешественников. Много туристов, экскурсии, новые друзья.</p>
+                            <div class="hotel-price">от 8 000 ₽ / ночь</div>
+                            <a href="hotel-bangkok.html" class="btn btn-primary">Выбрать</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-content">
+            <div class="container">
+                <div class="callout">
+                    <div class="callout-body">
+                        <h3>Хотите рекомендации по отелю?</h3>
+                        <p>Подберём 5–7 вариантов с плюсами/минусами и честными советами.</p>
+                    </div>
+                    <div class="callout-actions">
+                        <a class="btn btn-primary" href="contacts.html">Оставить заявку</a>
+                        <a class="btn btn-ghost" href="tours.html">Выбрать тур</a>
+                    </div>
+                </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sonesta Tour</h3>
+                    <p>Ваш надёжный партнёр в мире путешествий</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="tours.html">Туры</a></li>
+                        <li><a href="hotels.html">Отели</a></li>
+                        <li><a href="cruises.html">Круизы</a></li>
+                        <li><a href="flights.html">Авиабилеты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="about.html">О компании</a></li>
+                        <li><a href="promotions.html">Акции</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="offices.html">Офисы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>+7 (921) 755-88-52</p>
+                    <p>info@sonestatour.ru</p>
+                    <p>СПб, ул. Доблести, 26</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sonesta Tour. Все права защищены.</p>
+                <div class="footer-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
