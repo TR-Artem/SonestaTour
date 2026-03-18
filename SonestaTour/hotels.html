@@ -30,6 +30,7 @@
                 <ul class="nav-menu">
                     <li><a href="tours.html">Туры</a></li>
                     <li><a class="is-active" href="hotels.html">Отели</a></li>
+                    <li><a href="cart.html">Корзина (<span id="cart-count">0</span>)</a></li>
                     <li><a href="cruises.html">Круизы</a></li>
                     <li><a href="flights.html">Авиабилеты</a></li>
                     <li><a href="promotions.html">Акции</a></li>
@@ -109,7 +110,10 @@
                             </div>
                             <p class="hotel-description">Легендарный 7-звёздочный отель в форме паруса. Роскошные номера, мировой уровень сервиса, ресторан с 3 звёздами Мишлена.</p>
                             <div class="hotel-price">от 85 000 ₽ / ночь</div>
-                            <a href="hotel-burj.html" class="btn btn-primary">Выбрать</a>
+                            <div class="hotel-actions">
+                                <button class="btn btn-primary" data-action="add-to-cart" data-hotel-id="burj-al-arab-dubai" type="button">В корзину</button>
+                                <a href="hotel-burj.html" class="btn btn-ghost">Выбрать</a>
+                            </div>
                         </div>
 
                         <div class="hotel-card">
@@ -124,7 +128,10 @@
                             </div>
                             <p class="hotel-description">Шикарный курорт на частном острове. Водяные виллы, сноркелинг у самого номера, подводный спа.</p>
                             <div class="hotel-price">от 95 000 ₽ / ночь</div>
-                            <a href="hotel-maldives.html" class="btn btn-primary">Выбрать</a>
+                            <div class="hotel-actions">
+                                <button class="btn btn-primary" data-action="add-to-cart" data-hotel-id="maldives-grand-resort" type="button">В корзину</button>
+                                <a href="hotel-maldives.html" class="btn btn-ghost">Выбрать</a>
+                            </div>
                         </div>
 
                         <div class="hotel-card">
@@ -139,7 +146,10 @@
                             </div>
                             <p class="hotel-description">Популярный курортный отель с множеством развлечений. Детский клуб, аквапарк, ночные шоу, всё включено.</p>
                             <div class="hotel-price">от 45 000 ₽ / ночь</div>
-                            <a href="hotel-palace-antalya.html" class="btn btn-primary">Выбрать</a>
+                            <div class="hotel-actions">
+                                <button class="btn btn-primary" data-action="add-to-cart" data-hotel-id="palace-grand-antalya" type="button">В корзину</button>
+                                <a href="hotel-palace-antalya.html" class="btn btn-ghost">Выбрать</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,7 +170,10 @@
                             </div>
                             <p class="hotel-description">Отличное соотношение цены и качества. Удобное расположение, рядом музеи, ресторан и кафе.</p>
                             <div class="hotel-price">от 25 000 ₽ / ночь</div>
-                            <a href="hotel-cairo.html" class="btn btn-primary">Выбрать</a>
+                            <div class="hotel-actions">
+                                <button class="btn btn-primary" data-action="add-to-cart" data-hotel-id="grand-plaza-hotel-cairo" type="button">В корзину</button>
+                                <a href="hotel-cairo.html" class="btn btn-ghost">Выбрать</a>
+                            </div>
                         </div>
 
                         <div class="hotel-card">
@@ -175,7 +188,10 @@
                             </div>
                             <p class="hotel-description">Семейный отель прямо на пляже. Питание включено, много развлечений для всей семьи.</p>
                             <div class="hotel-price">от 28 000 ₽ / ночь</div>
-                            <a href="hotel-kemer.html" class="btn btn-primary">Выбрать</a>
+                            <div class="hotel-actions">
+                                <button class="btn btn-primary" data-action="add-to-cart" data-hotel-id="kemer-beach-resort" type="button">В корзину</button>
+                                <a href="hotel-kemer.html" class="btn btn-ghost">Выбрать</a>
+                            </div>
                         </div>
 
                         <div class="hotel-card">
@@ -190,7 +206,10 @@
                             </div>
                             <p class="hotel-description">Уютный отель с аутентичной атмосферой. Традиционная тайская кухня, спа, йога по утрам.</p>
                             <div class="hotel-price">от 22 000 ₽ / ночь</div>
-                            <a href="hotel-phuket.html" class="btn btn-primary">Выбрать</a>
+                            <div class="hotel-actions">
+                                <button class="btn btn-primary" data-action="add-to-cart" data-hotel-id="phuket-sunset-inn" type="button">В корзину</button>
+                                <a href="hotel-phuket.html" class="btn btn-ghost">Выбрать</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -211,7 +230,10 @@
                             </div>
                             <p class="hotel-description">Хороший выбор для туристов, путешествующих на бюджет. Близко к достопримечательностям города.</p>
                             <div class="hotel-price">от 12 000 ₽ / ночь</div>
-                            <a href="hotel-madrid.html" class="btn btn-primary">Выбрать</a>
+                            <div class="hotel-actions">
+                                <button class="btn btn-primary" data-action="add-to-cart" data-hotel-id="economy-plaza-madrid" type="button">В корзину</button>
+                                <a href="hotel-madrid.html" class="btn btn-ghost">Выбрать</a>
+                            </div>
                         </div>
 
                         <div class="hotel-card">
@@ -226,7 +248,10 @@
                             </div>
                             <p class="hotel-description">Доступный отель с хорошим расположением. Недалеко коралловые рифы для дайвинга.</p>
                             <div class="hotel-price">от 15 000 ₽ / ночь</div>
-                            <a href="hotel-sharm.html" class="btn btn-primary">Выбрать</a>
+                            <div class="hotel-actions">
+                                <button class="btn btn-primary" data-action="add-to-cart" data-hotel-id="sharm-budget-resort" type="button">В корзину</button>
+                                <a href="hotel-sharm.html" class="btn btn-ghost">Выбрать</a>
+                            </div>
                         </div>
 
                         <div class="hotel-card">
@@ -241,7 +266,10 @@
                             </div>
                             <p class="hotel-description">Отличный выбор для молодых путешественников. Много туристов, экскурсии, новые друзья.</p>
                             <div class="hotel-price">от 8 000 ₽ / ночь</div>
-                            <a href="hotel-bangkok.html" class="btn btn-primary">Выбрать</a>
+                            <div class="hotel-actions">
+                                <button class="btn btn-primary" data-action="add-to-cart" data-hotel-id="bangkok-traveler-guesthouse" type="button">В корзину</button>
+                                <a href="hotel-bangkok.html" class="btn btn-ghost">Выбрать</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -304,6 +332,8 @@
             </div>
         </div>
     </footer>
+
+    <script defer src="cart-actions.js"></script>
 </body>
 </html>
 
