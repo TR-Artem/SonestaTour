@@ -331,6 +331,424 @@ const hotels = [
         ],
         rating: 4.4,
         reviews: 2134
+    },
+    {
+        id: 'oriental-bangkok',
+        name: 'The Oriental Bangkok',
+        location: 'Бангкок, Таиланд',
+        stars: 5,
+        price: 55000,
+        category: 'premium',
+        images: ['images/Тай Пхукет.jpg', 'images/Дубай ОАЭ.jpg'],
+        description: 'Легендарный отель на берегу реки Чао Прайя. Лучший сервис с 1876 года.',
+        features: ['🏛️ Исторический', '🍽️ Fine Dining', '💆 Spa', '🛥️ Трансфер на лодке', '🎭 Тайский массаж'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Фитнес', 'Ресторан', 'Бар'],
+        roomTypes: [
+            { name: 'Deluxe', area: 40, guests: 2, price: 55000 },
+            { name: 'Premium River View', area: 55, guests: 2, price: 75000 },
+            { name: 'Siam Suite', area: 85, guests: 3, price: 120000 }
+        ],
+        rating: 4.8,
+        reviews: 3245
+    },
+    {
+        id: 'amalfi-positano',
+        name: 'Le Sirenuse Positano',
+        location: 'Позитано, Италия',
+        stars: 5,
+        price: 95000,
+        category: 'premium',
+        images: ['images/Италия.jpg', 'images/ИспанияКоста.jpg'],
+        description: 'Романтический бутик-отель на скалах Амальфи. Вид на Лигурийское море.',
+        features: ['🌅 Панорамный вид', '🍷 Винный погреб', '💆 Spa', '🏊 Infinity pool', '🍽️ Итальянская кухня'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Ресторан', 'Бар', 'Трансфер'],
+        roomTypes: [
+            { name: 'Classic', area: 25, guests: 2, price: 95000 },
+            { name: 'Superior', area: 35, guests: 2, price: 130000 },
+            { name: 'Junior Suite', area: 50, guests: 2, price: 180000 }
+        ],
+        rating: 4.9,
+        reviews: 1567
+    },
+    {
+        id: 'bali-mandapa',
+        name: 'Mandapa Ritz-Carlton Bali',
+        location: 'Убуд, Индонезия',
+        stars: 5,
+        price: 85000,
+        category: 'premium',
+        images: ['images/Индонезия.jpg', 'images/Мальдивы.jpg'],
+        description: 'Роскошный курорт в джунглях Бали с видом на рисовые террасы и храмы.',
+        features: ['🌾 Rice Terrace View', '💆 Spa', '🏊 Infinity pool', '🧘 Yoga', '🍽️ Indonesian Cuisine'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Фитнес', 'Ресторан', 'Бар', 'Детский клуб'],
+        roomTypes: [
+            { name: 'Garden Villa', area: 100, guests: 2, price: 85000 },
+            { name: 'Pool Villa', area: 150, guests: 2, price: 140000 },
+            { name: 'One Bedroom Residence', area: 200, guests: 3, price: 220000 }
+        ],
+        rating: 4.9,
+        reviews: 2345
+    },
+    {
+        id: 'hurghada-marriott',
+        name: 'Marriott Beach Resort Hurghada',
+        location: 'Хургада, Египет',
+        stars: 5,
+        price: 35000,
+        category: 'comfort',
+        images: ['images/ЕгипетХургада.jpg', 'images/ХургадаGrandResort.jpg'],
+        description: 'Отличный курорт для дайверов и любителей Красного моря.',
+        features: ['🏖️ Приватный пляж', '🤿 Дайвинг-центр', '🍽️ All Inclusive', '🏊 Бассейны', '🎉 Анимация'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Дайвинг', 'Ресторан', 'Бар', 'Водные виды спорта'],
+        roomTypes: [
+            { name: 'Standard', area: 35, guests: 2, price: 35000 },
+            { name: 'Pool Access', area: 45, guests: 2, price: 48000 },
+            { name: 'Family Room', area: 60, guests: 4, price: 65000 }
+        ],
+        rating: 4.5,
+        reviews: 2876
+    },
+    {
+        id: 'cuba-varadero',
+        name: 'Iberostar Bella Vista',
+        location: 'Варадеро, Куба',
+        stars: 5,
+        price: 55000,
+        category: 'comfort',
+        images: ['images/Мальдивы.jpg', 'images/ЕгипетХургада.jpg'],
+        description: 'Современный курорт на лучшем пляже Кубы. Тропический рай с кубинским колоритом.',
+        features: ['🏖️ Пляж 5⭐', '🍽️ 8 ресторанов', '💆 Spa', '🌴 Tropical Garden', '🎭 Живая музыка'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Теннис', 'Ресторан', 'Бар', 'Ночной клуб'],
+        roomTypes: [
+            { name: 'Standard', area: 35, guests: 2, price: 55000 },
+            { name: 'Club Room', area: 45, guests: 2, price: 72000 },
+            { name: 'Junior Suite', area: 65, guests: 4, price: 95000 }
+        ],
+        rating: 4.6,
+        reviews: 1987
+    },
+    {
+        id: 'dubai-atlantis',
+        name: 'Atlantis The Palm Dubai',
+        location: 'Дубай, ОАЭ',
+        stars: 5,
+        price: 75000,
+        category: 'premium',
+        images: ['images/Дубай ОАЭ.jpg', 'images/ДубайBurjAlArab.jpg'],
+        description: 'Знаменитый отель на полумесяце Палм. Крупнейший аквапарк и океанариум.',
+        features: ['🏊 Аквапарк', '🐬 Океанариум', '🍽️ 23 ресторана', '🌊 Аквадорожки', '🎰 Казино'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Дайвинг', 'Ресторан', 'Бар', 'Аквапарк'],
+        roomTypes: [
+            { name: 'City View', area: 45, guests: 2, price: 75000 },
+            { name: 'Palm View', area: 55, guests: 2, price: 100000 },
+            { name: 'Atlantis Suite', area: 100, guests: 4, price: 200000 }
+        ],
+        rating: 4.7,
+        reviews: 4532
+    },
+    {
+        id: 'mexico-cancun',
+        name: 'Hyatt Ziva Cancun',
+        location: 'Канкун, Мексика',
+        stars: 5,
+        price: 58000,
+        category: 'comfort',
+        images: ['images/Мальдивы.jpg', 'images/Тай Пхукет.jpg'],
+        description: 'Ультра-all-inclusive курорт на Карибском побережье с видом на океан.',
+        features: ['🏖️ Карибский пляж', '🍽️ Unlimited Dining', '💆 Talasian Spa', '🏊 Swim-up бар', '👨‍👩‍👧‍👦 Family'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Фитнес', 'Ресторан', 'Бар', 'Детский клуб'],
+        roomTypes: [
+            { name: 'Deluxe Ocean', area: 40, guests: 2, price: 58000 },
+            { name: 'Club Ocean', area: 55, guests: 2, price: 80000 },
+            { name: 'Presidential Suite', area: 120, guests: 4, price: 150000 }
+        ],
+        rating: 4.6,
+        reviews: 3214
+    },
+    {
+        id: 'kenya-diani',
+        name: 'Diani Reef Beach Resort',
+        location: 'Диани Бич, Кения',
+        stars: 4,
+        price: 45000,
+        category: 'comfort',
+        images: ['images/Мальдивы.jpg', 'images/Индонезия.jpg'],
+        description: 'Курорт на берегу Индийского океана. Ворота в африканское сафари.',
+        features: ['🏖️ Приватный пляж', '🚁 Сафари', '🤿 Сноркелинг', '🐢 Черепахи', '🌴 Масаи Марра'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Дайвинг', 'Ресторан', 'Бар', 'Экскурсии'],
+        roomTypes: [
+            { name: 'Standard', area: 30, guests: 2, price: 45000 },
+            { name: 'Ocean View', area: 45, guests: 2, price: 60000 },
+            { name: 'Suite', area: 70, guests: 4, price: 90000 }
+        ],
+        rating: 4.4,
+        reviews: 1234
+    },
+    {
+        id: 'maldives-soneva',
+        name: 'Soneva Fushi Resort',
+        location: 'Мальдивы',
+        stars: 6,
+        price: 200000,
+        category: 'premium',
+        images: ['images/Мальдивы.jpg', 'images/Дубай ОАЭ.jpg'],
+        description: 'Уникальный эко-курорт без пластика. Лучшие водяные виллы и астрономия.',
+        features: ['🌿 Zero Waste', '🔭 Обсерватория', '🏊 Частный остров', '🍽️ Fresh Cuisine', '🌙 Astronomy'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Дайвинг', 'Ресторан', 'Бар', 'Кино под открытым небом'],
+        roomTypes: [
+            { name: 'Crusoe Suite', area: 150, guests: 2, price: 200000 },
+            { name: 'Soneva Fushi Villa', area: 200, guests: 2, price: 280000 },
+            { name: 'Private Reserve', area: 400, guests: 6, price: 550000 }
+        ],
+        rating: 5.0,
+        reviews: 876
+    },
+    {
+        id: 'turkey-bodrum',
+        name: 'Metres Hotel Bodrum',
+        location: 'Бодрум, Турция',
+        stars: 5,
+        price: 38000,
+        category: 'comfort',
+        images: ['images/ТурцияАнталия.jpg', 'images/GrandHaberАнталия.jpg'],
+        description: 'Модный бутик-отель на Эгейском побережье с яхтенным причалом.',
+        features: ['⛵ Яхтенный клуб', '🌊 Infinity pool', '🍽️ Seafood', '🌅 Sunset Bar', '🧴 Beach Club'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Яхты', 'Ресторан', 'Бар', 'Водные виды спорта'],
+        roomTypes: [
+            { name: 'Boutique Room', area: 30, guests: 2, price: 38000 },
+            { name: 'Sea View', area: 45, guests: 2, price: 52000 },
+            { name: 'Suite with Pool', area: 70, guests: 3, price: 85000 }
+        ],
+        rating: 4.6,
+        reviews: 1654
+    },
+    {
+        id: 'greece-mykonos',
+        name: 'Mykonos Grand Hotel',
+        location: 'Миконос, Греция',
+        stars: 5,
+        price: 68000,
+        category: 'premium',
+        images: ['images/Греция.jpg', 'images/ИспанияКоста.jpg'],
+        description: 'Роскошный курорт с видом на Эгейское море и знаменитые ветряные мельницы острова.',
+        features: ['🌅 Aegean Views', '🏊 Infinity pool', '💆 Spa', '🍽️ Greek Fine Dining', '🏖️ Mykonos Beach'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Фитнес', 'Ресторан', 'Бар', 'Трансфер'],
+        roomTypes: [
+            { name: 'Deluxe', area: 35, guests: 2, price: 68000 },
+            { name: 'Sea View Suite', area: 55, guests: 2, price: 95000 },
+            { name: 'Master Suite', area: 85, guests: 4, price: 140000 }
+        ],
+        rating: 4.8,
+        reviews: 2123
+    },
+    {
+        id: 'spain-ibiza',
+        name: 'Seven Pines Pure Club Ibiza',
+        location: 'Ибица, Испания',
+        stars: 5,
+        price: 82000,
+        category: 'premium',
+        images: ['images/ИспанияКоста.jpg', 'images/Греция.jpg'],
+        description: 'Бутик-курорт на скалах с видом на закат. Идеален для романтического отдыха.',
+        features: ['🌅 Sunset Views', '🏊 Cliff pool', '💆 Spa', '🍽️ Mediterranean', '🥂 Pure Club'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Фитнес', 'Ресторан', 'Бар', 'Консьерж'],
+        roomTypes: [
+            { name: 'Terrace Room', area: 40, guests: 2, price: 82000 },
+            { name: 'Pool Suite', area: 60, guests: 2, price: 120000 },
+            { name: 'Villa', area: 120, guests: 4, price: 200000 }
+        ],
+        rating: 4.9,
+        reviews: 1432
+    },
+    {
+        id: 'morocco-marrakech',
+        name: 'Royal Mansour Marrakech',
+        location: 'Марракеш, Марокко',
+        stars: 5,
+        price: 110000,
+        category: 'premium',
+        images: ['images/Дубай ОАЭ.jpg', 'images/Италия.jpg'],
+        description: 'Роскошный риад в центре старого города с традиционной марокканской архитектурой.',
+        features: ['🏛️ Riad Style', '💆 Hammam', '🍽️ Moroccan Cuisine', '🌺 Courtyard pool', '🛍️ Medina'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Hammam', 'Ресторан', 'Бар', 'Персональный дворецкий'],
+        roomTypes: [
+            { name: 'Chambre', area: 45, guests: 2, price: 110000 },
+            { name: 'Suite', area: 65, guests: 2, price: 165000 },
+            { name: 'Private Residence', area: 200, guests: 4, price: 350000 }
+        ],
+        rating: 4.9,
+        reviews: 1876
+    },
+    {
+        id: 'colombia-cartagena',
+        name: 'Sofitel Legend Santa Clara',
+        location: 'Картахена, Колумбия',
+        stars: 5,
+        price: 48000,
+        category: 'comfort',
+        images: ['images/ЕгипетХургада.jpg', 'images/Мальдивы.jpg'],
+        description: 'Исторический отель в колониальном здании с видом на Карибское море.',
+        features: ['🏛️ Colonial Heritage', '💆 Spa', '🌊 Rooftop pool', '🍽️ Fusion Cuisine', '🛍️ Old Town'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Фитнес', 'Ресторан', 'Бар', 'Экскурсии'],
+        roomTypes: [
+            { name: 'Classic', area: 30, guests: 2, price: 48000 },
+            { name: 'Ocean View', area: 45, guests: 2, price: 65000 },
+            { name: 'Grand Suite', area: 80, guests: 3, price: 110000 }
+        ],
+        rating: 4.6,
+        reviews: 1654
+    },
+    {
+        id: 'brazil-rio',
+        name: 'Belmond Copacabana Palace',
+        location: 'Рио-де-Жанейро, Бразилия',
+        stars: 5,
+        price: 95000,
+        category: 'premium',
+        images: ['images/Мальдивы.jpg', 'images/Дубай ОАЭ.jpg'],
+        description: 'Культовый отель на пляже Копакабана с видом на статую Христа.',
+        features: ['🏖️ Copacabana Beach', '💆 Spa', '🎾 Tennis', '🍽️ Fine Dining', '🎭 Jazz Club'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Теннис', 'Ресторан', 'Бар', 'Персональный консьерж'],
+        roomTypes: [
+            { name: 'Deluxe', area: 40, guests: 2, price: 95000 },
+            { name: 'Ocean Suite', area: 65, guests: 2, price: 150000 },
+            { name: 'Penthouse', area: 150, guests: 4, price: 350000 }
+        ],
+        rating: 4.8,
+        reviews: 2876
+    },
+    {
+        id: 'japan-kyoto',
+        name: 'Aman Kyoto',
+        location: 'Киото, Япония',
+        stars: 5,
+        price: 150000,
+        category: 'premium',
+        images: ['images/Италия.jpg', 'images/Тай Пхукет.jpg'],
+        description: 'Уединённый курорт в бамбуковом лесу с традиционными японскими ваннами.',
+        features: ['🎋 Bamboo Forest', '⛩️ Onsen', '🍵 Tea Ceremony', '🍽️ Kaiseki', '🌸 Zen Garden'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Onsen', 'Ресторан', 'Трансфер', 'Туры'],
+        roomTypes: [
+            { name: 'Forest Room', area: 50, guests: 2, price: 150000 },
+            { name: 'Pavilion', area: 80, guests: 2, price: 220000 },
+            { name: 'Kinmasa Suite', area: 120, guests: 4, price: 380000 }
+        ],
+        rating: 4.9,
+        reviews: 1234
+    },
+    {
+        id: 'kenya-maasai',
+        name: 'Singita Sasalance Lodge',
+        location: 'Масай Мара, Кения',
+        stars: 5,
+        price: 180000,
+        category: 'premium',
+        images: ['images/Мальдивы.jpg', 'images/Индонезия.jpg'],
+        description: 'Лагерь-люкс в заповеднике с видом на миграцию антилоп гну.',
+        features: ['🦁 Сафари', '🐘 Elephant', '🏕️ Luxury Tents', '🍽️ Bush Dining', '🌅 Sundowner'],
+        amenities: ['Wi-Fi', 'SPA', 'Бассейн', 'Экскурсии', 'Ресторан', 'Бар'],
+        roomTypes: [
+            { name: 'Suite Tent', area: 100, guests: 2, price: 180000 },
+            { name: 'Family Suite', area: 150, guests: 4, price: 280000 },
+            { name: 'Private Villa', area: 250, guests: 6, price: 450000 }
+        ],
+        rating: 5.0,
+        reviews: 654
+    },
+    {
+        id: 'iceland-blue-lagoon',
+        name: 'Retreat at Blue Lagoon',
+        location: 'Исландия',
+        stars: 5,
+        price: 200000,
+        category: 'premium',
+        images: ['images/Италия.jpg', 'images/ИспанияКоста.jpg'],
+        description: 'Геотермальный курорт с приватным доступом в Blue Lagoon и видом на вулканы.',
+        features: ['♨️ Blue Lagoon', '🌋 Lava Fields', '💆 Spa', '🍽️ Michelin Dining', '🌌 Northern Lights'],
+        amenities: ['Wi-Fi', 'SPA', 'Blue Lagoon', 'Ресторан', 'Бар', 'Snorkeling'],
+        roomTypes: [
+            { name: 'Suite', area: 70, guests: 2, price: 200000 },
+            { name: 'Ritual Suite', area: 100, guests: 2, price: 280000 },
+            { name: 'The Retreat Villa', area: 200, guests: 4, price: 450000 }
+        ],
+        rating: 4.9,
+        reviews: 987
+    },
+    {
+        id: 'mexico-tulum',
+        name: 'Be Tulum Hotel',
+        location: 'Тулум, Мексика',
+        stars: 4,
+        price: 45000,
+        category: 'comfort',
+        images: ['images/Мальдивы.jpg', 'images/Тай Пхукет.jpg'],
+        description: 'Бутик-отель на побережье Карибов с пирамидами майя в джунглях.',
+        features: ['🏖️ Caribbean Coast', '🏛️ Mayan Ruins', '🍽️ Farm-to-table', '🚲 Yoga', '🐢 Sea Turtles'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Ресторан', 'Бар', 'Туры'],
+        roomTypes: [
+            { name: 'Jungle Suite', area: 40, guests: 2, price: 45000 },
+            { name: 'Ocean Suite', area: 55, guests: 2, price: 65000 },
+            { name: 'Pool Villa', area: 90, guests: 3, price: 110000 }
+        ],
+        rating: 4.7,
+        reviews: 1567
+    },
+    {
+        id: 'philippines-palawan',
+        name: 'Amanpulo Resort',
+        location: 'Палаван, Филиппины',
+        stars: 5,
+        price: 165000,
+        category: 'premium',
+        images: ['images/Мальдивы.jpg', 'images/Тай Пхукет.jpg'],
+        description: 'Частный остров с белоснежными пляжами. Лучший дайвинг в Азии.',
+        features: ['🏝️ Private Island', '🤿 World-class Diving', '💆 Spa', '🍽️ Beach Dining', '🐠 Coral Reef'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Дайвинг', 'Ресторан', 'Бар', 'Яхты'],
+        roomTypes: [
+            { name: 'Cebu Villa', area: 120, guests: 2, price: 165000 },
+            { name: 'Beach Villa', area: 160, guests: 2, price: 220000 },
+            { name: 'One Bedroom Suite', area: 250, guests: 4, price: 350000 }
+        ],
+        rating: 4.9,
+        reviews: 876
+    },
+    {
+        id: 'mauritius-saint-geran',
+        name: 'One&Only Le Saint Geran',
+        location: 'Маврикий',
+        stars: 5,
+        price: 130000,
+        category: 'premium',
+        images: ['images/Мальдивы.jpg', 'images/Дубай ОАЭ.jpg'],
+        description: 'Роскошный курорт на острове Маврикий с коралловыми рифами.',
+        features: ['🏖️ Private Beach', '🤿 Snorkeling', '⛳ Golf', '💆 Spa', '🍽️ French Cuisine'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Гольф', 'Ресторан', 'Бар', 'Водные виды спорта'],
+        roomTypes: [
+            { name: 'Garden Suite', area: 80, guests: 2, price: 130000 },
+            { name: 'Ocean Suite', area: 110, guests: 2, price: 180000 },
+            { name: 'Private Villa', area: 200, guests: 4, price: 300000 }
+        ],
+        rating: 4.8,
+        reviews: 1432
+    },
+    {
+        id: 'madagascar-ikonina',
+        name: 'Ikonina Lodge',
+        location: 'Носк Беш, Мадагаскар',
+        stars: 4,
+        price: 35000,
+        category: 'comfort',
+        images: ['images/Мальдивы.jpg', 'images/Индонезия.jpg'],
+        description: 'Уникальный эко-лагерь рядом с национальным парком Исоло.',
+        features: ['🦎 Лемуры', '🌿 Дождевые леса', '🐛 Экскурсии', '🍽️ Creole Cuisine', '🌴 Beach'],
+        amenities: ['Wi-Fi', 'Бассейн', 'SPA', 'Экскурсии', 'Ресторан', 'Бар'],
+        roomTypes: [
+            { name: 'Eco Lodge', area: 25, guests: 2, price: 35000 },
+            { name: 'Forest Suite', area: 45, guests: 2, price: 50000 },
+            { name: 'Family Bungalow', area: 60, guests: 4, price: 75000 }
+        ],
+        rating: 4.5,
+        reviews: 567
     }
 ];
 
