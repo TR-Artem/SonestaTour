@@ -13,6 +13,7 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-top">
             <div class="container">
@@ -44,26 +45,25 @@
     </header>
 
     <main>
-        <section class="page-hero">
+        <!-- Hero Banner -->
+        <section class="flights-hero">
+            <div class="flights-hero-bg"></div>
             <div class="container">
-                <div class="breadcrumbs">
-                    <a href="index.html">Главная</a>
-                    <span class="sep">/</span>
-                    <span>Авиабилеты</span>
+                <div class="flights-hero-content">
+                    <h1>Авиабилеты</h1>
+                    <p>Найдите лучшие цены на перелёты по всему миру</p>
                 </div>
-                <h2 class="page-title">Авиабилеты</h2>
-                <p class="page-subtitle">Найдите лучшие цены на перелёты по всему миру</p>
             </div>
         </section>
 
-        <!-- Flight Search Form -->
-        <section class="flight-search-section">
+        <!-- Search Form -->
+        <section class="search-section">
             <div class="container">
-                <form class="flight-search-form" id="flight-search-form">
-                    <div class="flight-search-row">
-                        <div class="flight-input-group">
+                <div class="search-card">
+                    <div class="search-row">
+                        <div class="search-field">
                             <label>Откуда</label>
-                            <select name="from-city" class="form-control" id="from-city">
+                            <select id="from-city" class="search-select">
                                 <option value="">Город вылета</option>
                                 <option value="moscow">Москва</option>
                                 <option value="spb">Санкт-Петербург</option>
@@ -71,9 +71,9 @@
                                 <option value="kazan">Казань</option>
                             </select>
                         </div>
-                        <div class="flight-input-group">
+                        <div class="search-field">
                             <label>Куда</label>
-                            <select name="to-city" class="form-control" id="to-city">
+                            <select id="to-city" class="search-select">
                                 <option value="">Город прилёта</option>
                                 <option value="antalya">Анталия</option>
                                 <option value="dubai">Дубай</option>
@@ -85,59 +85,56 @@
                                 <option value="sharm">Шарм-эль-Шейх</option>
                             </select>
                         </div>
-                        <div class="flight-input-group">
+                        <div class="search-field">
                             <label>Дата вылета</label>
-                            <input type="date" name="departure_date" class="form-control" id="departure-date">
+                            <input type="date" id="departure-date" class="search-input">
                         </div>
-                        <div class="flight-input-group passengers-input">
+                        <div class="search-field passengers-field">
                             <label>Пассажиры</label>
-                            <div class="passengers-selector" id="passengers-selector">
-                                <span id="passengers-display">1 взрослый</span>
+                            <div class="passengers-btn" id="passengers-btn">
+                                <span id="passengers-text">1 взрослый</span>
                             </div>
                             <div class="passengers-dropdown" id="passengers-dropdown">
-                                <div class="passenger-row">
+                                <div class="pass-row">
                                     <span>Взрослые</span>
-                                    <div class="passenger-counter">
-                                        <button type="button" onclick="changePassengers('adults', -1)">-</button>
-                                        <span id="adults-count">1</span>
-                                        <button type="button" onclick="changePassengers('adults', 1)">+</button>
+                                    <div class="counter">
+                                        <button type="button" onclick="changePax('adults', -1)">-</button>
+                                        <span id="adults-num">1</span>
+                                        <button type="button" onclick="changePax('adults', 1)">+</button>
                                     </div>
                                 </div>
-                                <div class="passenger-row">
-                                    <span>Дети (2-11 лет)</span>
-                                    <div class="passenger-counter">
-                                        <button type="button" onclick="changePassengers('children', -1)">-</button>
-                                        <span id="children-count">0</span>
-                                        <button type="button" onclick="changePassengers('children', 1)">+</button>
+                                <div class="pass-row">
+                                    <span>Дети 2-11</span>
+                                    <div class="counter">
+                                        <button type="button" onclick="changePax('children', -1)">-</button>
+                                        <span id="children-num">0</span>
+                                        <button type="button" onclick="changePax('children', 1)">+</button>
                                     </div>
                                 </div>
-                                <div class="passenger-row">
-                                    <span>Младенцы (0-2 лет)</span>
-                                    <div class="passenger-counter">
-                                        <button type="button" onclick="changePassengers('infants', -1)">-</button>
-                                        <span id="infants-count">0</span>
-                                        <button type="button" onclick="changePassengers('infants', 1)">+</button>
+                                <div class="pass-row">
+                                    <span>Младенцы 0-2</span>
+                                    <div class="counter">
+                                        <button type="button" onclick="changePax('infants', -1)">-</button>
+                                        <span id="infants-num">0</span>
+                                        <button type="button" onclick="changePax('infants', 1)">+</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flight-input-group">
-                            <button type="submit" class="btn-search">Найти билеты</button>
-                        </div>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
 
-        <section class="page-content">
+        <!-- Filters -->
+        <section class="filters-section">
             <div class="container">
-                <!-- Filters -->
-                <div class="filters-section">
-                    <div class="filters-grid">
-                        <div class="filter-group">
+                <div class="filters-panel">
+                    <div class="filters-row">
+                        <div class="filter-item">
                             <label>Авиакомпания</label>
-                            <select id="filter-airline" class="form-control">
-                                <option value="">Все авиакомпании</option>
+                            <select id="filter-airline" class="filter-select">
+                                <option value="">Все</option>
                                 <option value="Aeroflot">Aeroflot</option>
                                 <option value="Emirates">Emirates</option>
                                 <option value="Turkish Airlines">Turkish Airlines</option>
@@ -147,86 +144,99 @@
                                 <option value="EgyptAir">EgyptAir</option>
                             </select>
                         </div>
-                        <div class="filter-group">
+                        <div class="filter-item">
                             <label>Пересадки</label>
-                            <select id="filter-stops" class="form-control">
+                            <select id="filter-stops" class="filter-select">
                                 <option value="">Любые</option>
                                 <option value="direct">Прямой</option>
-                                <option value="1">1 пересадка</option>
+                                <option value="1stop">1 пересадка</option>
                             </select>
                         </div>
-                        <div class="filter-group">
+                        <div class="filter-item">
                             <label>Цена от</label>
-                            <input type="number" id="filter-price-min" class="form-control" placeholder="Мин. цена">
+                            <input type="number" id="filter-price-min" class="filter-input" placeholder="10 000 ₽">
                         </div>
-                        <div class="filter-group">
+                        <div class="filter-item">
                             <label>Цена до</label>
-                            <input type="number" id="filter-price-max" class="form-control" placeholder="Макс. цена">
+                            <input type="number" id="filter-price-max" class="filter-input" placeholder="100 000 ₽">
                         </div>
-                        <div class="filter-group">
+                        <div class="filter-item">
                             <label>Сортировка</label>
-                            <select id="filter-sort" class="form-control">
-                                <option value="price-asc">По цене (возр.)</option>
-                                <option value="price-desc">По цене (убыв.)</option>
+                            <select id="filter-sort" class="filter-select">
+                                <option value="price-asc">По цене ↑</option>
+                                <option value="price-desc">По цене ↓</option>
                                 <option value="duration">По времени</option>
                                 <option value="discount">По скидке</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="filters-actions">
-                        <button class="btn btn-ghost" onclick="resetFlightFilters()">Сбросить</button>
+                        <div class="filter-actions">
+                            <button class="btn-reset" onclick="resetFilters()">Сбросить</button>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Results Count -->
+        <!-- Results -->
+        <section class="results-section">
+            <div class="container">
                 <div class="results-header">
-                    <span class="results-count">0 рейсов найдено</span>
+                    <span class="results-count" id="results-count">0 рейсов найдено</span>
                 </div>
-
-                <!-- Flights List -->
                 <div class="flights-list" id="flights-list"></div>
             </div>
         </section>
 
         <!-- Benefits -->
-        <section class="page-content" style="background:var(--bg-light);">
+        <section class="benefits-section">
             <div class="container">
                 <h2 class="section-title">Почему покупать у нас</h2>
-                <div class="content-grid">
-                    <article class="info-card">
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                            </svg>
+                        </div>
                         <h3>Лучшие цены</h3>
-                        <p>Мы работаем напрямую с авиакомпаниями и гарантируем лучшие тарифы на рынке.</p>
-                        <div class="tag-row">
-                            <span class="tag">Гарантия цены</span>
-                            <span class="tag">Без наценок</span>
-                        </div>
-                    </article>
-                    <article class="info-card">
-                        <h3>Удобный выбор</h3>
-                        <p>Прямые рейсы, пересадки, разные классы — выбирайте подходящий вариант.</p>
-                        <div class="tag-row">
-                            <span class="tag">Прямые</span>
-                            <span class="tag">С пересадкой</span>
-                        </div>
-                    </article>
-                    <article class="info-card">
-                        <h3>Поддержка 24/7</h3>
-                        <p>Наши специалисты помогут с выбором, изменением бронирования и ответят на вопросы.</p>
-                        <div class="tag-row">
-                            <span class="tag">Консультация</span>
-                            <span class="tag">Помощь</span>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="callout">
-                    <div class="callout-body">
-                        <h3>Нужна помощь с выбором?</h3>
-                        <p>Напишите даты, города и предпочтения — мы предложим оптимальные варианты.</p>
+                        <p>Работаем напрямую с авиакомпаниями</p>
                     </div>
-                    <div class="callout-actions">
-                        <a class="btn btn-primary" href="contacts.html">Связаться</a>
-                        <a class="btn btn-ghost" href="tours.html">Посмотреть туры</a>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <h3>Гибкие даты</h3>
+                        <p>Выбирайте удобные даты вылета</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <h3>Поддержка 24/7</h3>
+                        <p>Всегда на связи и готовы помочь</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <div>
+                        <h2>Нужна помощь?</h2>
+                        <p>Наши специалисты помогут с выбором перелёта</p>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="contacts.html" class="btn btn-primary">Связаться</a>
+                        <a href="tours.html" class="btn btn-outline">Смотреть туры</a>
                     </div>
                 </div>
             </div>
@@ -267,222 +277,174 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Sonesta Tour. Все права защищены.</p>
-                <div class="footer-links">
-                    <a href="#">Политика конфиденциальности</a>
-                    <a href="#">Условия использования</a>
-                    <a href="#">Пользовательское соглашение</a>
-                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        let flightFilters = { airline: '', stops: '', priceMin: '', priceMax: '', sort: 'price-asc' };
-        let passengerCounts = { adults: 1, children: 0, infants: 0 };
+        let filters = { airline: '', stops: '', priceMin: '', priceMax: '', sort: 'price-asc' };
+        let pax = { adults: 1, children: 0, infants: 0 };
         
         document.addEventListener('DOMContentLoaded', function() {
-            bindFlightFilters();
-            applyFlightFilters();
-            initPassengersSelector();
-            
-            document.getElementById('flight-search-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                applyFlightFilters();
-            });
+            initFilters();
+            initPassengers();
+            renderFlights();
         });
-        
-        function bindFlightFilters() {
-            document.getElementById('filter-airline').addEventListener('change', function(e) {
-                flightFilters.airline = e.target.value;
-                applyFlightFilters();
+
+        function initFilters() {
+            document.getElementById('filter-airline').addEventListener('change', e => {
+                filters.airline = e.target.value;
+                renderFlights();
             });
-            document.getElementById('filter-stops').addEventListener('change', function(e) {
-                flightFilters.stops = e.target.value;
-                applyFlightFilters();
+            document.getElementById('filter-stops').addEventListener('change', e => {
+                filters.stops = e.target.value;
+                renderFlights();
             });
-            document.getElementById('filter-price-min').addEventListener('change', function(e) {
-                flightFilters.priceMin = e.target.value;
-                applyFlightFilters();
+            document.getElementById('filter-price-min').addEventListener('input', e => {
+                filters.priceMin = e.target.value;
+                renderFlights();
             });
-            document.getElementById('filter-price-max').addEventListener('change', function(e) {
-                flightFilters.priceMax = e.target.value;
-                applyFlightFilters();
+            document.getElementById('filter-price-max').addEventListener('input', e => {
+                filters.priceMax = e.target.value;
+                renderFlights();
             });
-            document.getElementById('filter-sort').addEventListener('change', function(e) {
-                flightFilters.sort = e.target.value;
-                applyFlightFilters();
+            document.getElementById('filter-sort').addEventListener('change', e => {
+                filters.sort = e.target.value;
+                renderFlights();
             });
         }
-        
-        function applyFlightFilters() {
-            const data = window.SonestaData;
-            if (!data || !data.flights) return;
+
+        function initPassengers() {
+            const btn = document.getElementById('passengers-btn');
+            const dropdown = document.getElementById('passengers-dropdown');
             
-            let filtered = data.flights.slice();
-            
-            if (flightFilters.airline) {
-                filtered = filtered.filter(f => f.airline === flightFilters.airline);
-            }
-            if (flightFilters.stops) {
-                if (flightFilters.stops === 'direct') {
-                    filtered = filtered.filter(f => f.stops === 'Прямой');
-                } else {
-                    filtered = filtered.filter(f => f.stops.includes('пересадка'));
-                }
-            }
-            if (flightFilters.priceMin) {
-                filtered = filtered.filter(f => f.price >= parseInt(flightFilters.priceMin));
-            }
-            if (flightFilters.priceMax) {
-                filtered = filtered.filter(f => f.price <= parseInt(flightFilters.priceMax));
-            }
-            
-            switch (flightFilters.sort) {
-                case 'price-asc': filtered.sort((a,b) => a.price - b.price); break;
-                case 'price-desc': filtered.sort((a,b) => b.price - a.price); break;
-                case 'duration': filtered.sort((a,b) => a.duration.localeCompare(b.duration)); break;
-                case 'discount': filtered.sort((a,b) => (b.discount||0) - (a.discount||0)); break;
-            }
-            
-            renderFlights(filtered);
-            document.querySelector('.results-count').textContent = filtered.length + ' рейсов найдено';
-        }
-        
-        function renderFlights(flights) {
-            const container = document.getElementById('flights-list');
-            if (!container) return;
-            
-            if (flights.length === 0) {
-                container.innerHTML = '<div class="no-results"><p>Рейсы не найдены</p><button class="btn btn-primary" onclick="resetFlightFilters()">Сбросить фильтры</button></div>';
-                return;
-            }
-            
-            let html = '';
-            flights.forEach(function(flight) {
-                const totalPassengers = passengerCounts.adults + passengerCounts.children;
-                const totalPrice = flight.price * totalPassengers;
-                
-                html += '<div class="flight-card">' +
-                    (flight.discount ? '<div class="flight-badge">-' + flight.discount + '%</div>' : '') +
-                    '<div class="flight-main">' +
-                    '<div class="flight-airline"><span class="airline-logo">' + getAirlineLogo(flight.airline) + '</span><span>' + flight.airline + '</span></div>' +
-                    '<div class="flight-route">' +
-                    '<div class="flight-city departure">' +
-                    '<div class="city-code">' + getCityCode(flight.from) + '</div>' +
-                    '<div class="city-time">' + flight.departureTime + '</div>' +
-                    '<div class="city-name">' + getCityName(flight.from) + '</div>' +
-                    '</div>' +
-                    '<div class="flight-duration-line">' +
-                    '<span class="duration-text">' + flight.duration + '</span>' +
-                    '<div class="duration-line"><div class="line"></div><div class="plane-icon">✈</div><div class="line"></div></div>' +
-                    '<span class="stops-text">' + flight.stops + '</span>' +
-                    '</div>' +
-                    '<div class="flight-city arrival">' +
-                    '<div class="city-code">' + getCityCode(flight.to) + '</div>' +
-                    '<div class="city-time">' + flight.arrivalTime + '</div>' +
-                    '<div class="city-name">' + getCityName(flight.to) + '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="flight-details">' +
-                    '<span class="flight-info"><strong>Самолёт:</strong> ' + flight.aircraft + '</span>' +
-                    '<span class="flight-info"><strong>Дата:</strong> ' + formatDateShort(flight.departureDate) + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="flight-booking">' +
-                    '<div class="flight-price">';
-                
-                if (flight.oldPrice) {
-                    html += '<span class="old-price">' + flight.oldPrice.toLocaleString('ru-RU') + ' ₽</span>';
-                }
-                html += '<span class="new-price">' + flight.price.toLocaleString('ru-RU') + ' ₽</span><span class="price-note">за 1 билет</span></div>' +
-                    '<div class="flight-total">Итого: <strong>' + totalPrice.toLocaleString('ru-RU') + ' ₽</strong></div>' +
-                    '<a href="booking.html?id=' + flight.id + '&type=flight" class="btn btn-primary">Выбрать</a>' +
-                    '</div></div>';
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
             });
-            container.innerHTML = html;
+            
+            document.addEventListener('click', () => {
+                dropdown.classList.remove('show');
+            });
         }
-        
-        function getCityCode(str) {
-            const match = str.match(/\(([^)]+)\)/);
-            return match ? match[1] : str.split(' ')[0];
+
+        function changePax(type, delta) {
+            if (type === 'adults') pax.adults = Math.max(1, Math.min(9, pax.adults + delta));
+            if (type === 'children') pax.children = Math.max(0, Math.min(8, pax.children + delta));
+            if (type === 'infants') pax.infants = Math.max(0, Math.min(4, pax.infants + delta));
+            
+            document.getElementById('adults-num').textContent = pax.adults;
+            document.getElementById('children-num').textContent = pax.children;
+            document.getElementById('infants-num').textContent = pax.infants;
+            
+            updatePaxDisplay();
+            renderFlights();
         }
-        
-        function getCityName(str) {
-            return str.replace(/\([^)]+\)/, '').trim();
+
+        function updatePaxDisplay() {
+            const parts = [];
+            if (pax.adults > 0) parts.push(pax.adults + ' взросл' + (pax.adults === 1 ? 'ый' : 'ых'));
+            if (pax.children > 0) parts.push(pax.children + ' ребён' + (pax.children === 1 ? 'ок' : 'ка'));
+            if (pax.infants > 0) parts.push(pax.infants + ' младен' + (pax.infants === 1 ? 'ец' : 'ца'));
+            document.getElementById('passengers-text').textContent = parts.join(', ') || '1 взрослый';
         }
-        
-        function getAirlineLogo(airline) {
-            const logos = {
-                'Aeroflot': '✈',
-                'Emirates': '🛫',
-                'Turkish Airlines': '🛩',
-                'Qatar Airways': '🛫',
-                'S7 Airlines': '✈',
-                'Pobeda': '🛫',
-                'EgyptAir': '🛩'
-            };
-            return logos[airline] || '✈';
-        }
-        
-        function formatDateShort(dateStr) {
-            const date = new Date(dateStr);
-            return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' });
-        }
-        
-        function resetFlightFilters() {
-            flightFilters = { airline: '', stops: '', priceMin: '', priceMax: '', sort: 'price-asc' };
+
+        function resetFilters() {
+            filters = { airline: '', stops: '', priceMin: '', priceMax: '', sort: 'price-asc' };
             document.getElementById('filter-airline').value = '';
             document.getElementById('filter-stops').value = '';
             document.getElementById('filter-price-min').value = '';
             document.getElementById('filter-price-max').value = '';
             document.getElementById('filter-sort').value = 'price-asc';
-            applyFlightFilters();
+            renderFlights();
         }
-        
-        function initPassengersSelector() {
-            const selector = document.getElementById('passengers-selector');
-            const dropdown = document.getElementById('passengers-dropdown');
+
+        function renderFlights() {
+            const data = window.SonestaData;
+            if (!data || !data.flights) return;
             
-            selector.addEventListener('click', function(e) {
-                e.stopPropagation();
-                dropdown.classList.toggle('active');
+            let list = data.flights.slice();
+            
+            if (filters.airline) list = list.filter(f => f.airline === filters.airline);
+            if (filters.stops) {
+                if (filters.stops === 'direct') list = list.filter(f => f.stops === 'Прямой');
+                else list = list.filter(f => f.stops.includes('пересадка'));
+            }
+            if (filters.priceMin) list = list.filter(f => f.price >= parseInt(filters.priceMin));
+            if (filters.priceMax) list = list.filter(f => f.price <= parseInt(filters.priceMax));
+            
+            switch (filters.sort) {
+                case 'price-asc': list.sort((a,b) => a.price - b.price); break;
+                case 'price-desc': list.sort((a,b) => b.price - a.price); break;
+                case 'duration': list.sort((a,b) => a.duration.localeCompare(b.duration)); break;
+                case 'discount': list.sort((a,b) => (b.discount||0) - (a.discount||0)); break;
+            }
+            
+            document.getElementById('results-count').textContent = list.length + ' рейсов найдено';
+            
+            const container = document.getElementById('flights-list');
+            if (list.length === 0) {
+                container.innerHTML = '<div class="no-flights"><p>Рейсы не найдены</p><button class="btn btn-primary" onclick="resetFilters()">Сбросить фильтры</button></div>';
+                return;
+            }
+            
+            let html = '';
+            list.forEach(f => {
+                const total = f.price * (pax.adults + pax.children);
+                html += `
+                <div class="flight-ticket">
+                    ${f.discount ? '<div class="flight-sale">-' + f.discount + '%</div>' : ''}
+                    <div class="ticket-main">
+                        <div class="ticket-airline">
+                            <span class="airline-icon">✈</span>
+                            <span>${f.airline}</span>
+                        </div>
+                        <div class="ticket-route">
+                            <div class="route-point">
+                                <span class="route-code">${getCode(f.from)}</span>
+                                <span class="route-city">${getCity(f.from)}</span>
+                                <span class="route-time">${f.departureTime}</span>
+                            </div>
+                            <div class="route-line">
+                                <span class="route-duration">${f.duration}</span>
+                                <div class="line-track"><div class="line-dot"></div><div class="line-track-line"></div><div class="line-plane">✈</div><div class="line-dot"></div></div>
+                                <span class="route-stops">${f.stops}</span>
+                            </div>
+                            <div class="route-point">
+                                <span class="route-code">${getCode(f.to)}</span>
+                                <span class="route-city">${getCity(f.to)}</span>
+                                <span class="route-time">${f.arrivalTime}</span>
+                            </div>
+                        </div>
+                        <div class="ticket-info">
+                            <span>${f.aircraft}</span>
+                            <span>${formatDate(f.departureDate)}</span>
+                        </div>
+                    </div>
+                    <div class="ticket-price">
+                        ${f.oldPrice ? '<span class="price-old">' + f.oldPrice.toLocaleString() + ' ₽</span>' : ''}
+                        <span class="price-new">' + f.price.toLocaleString() + ' ₽</span>
+                        <span class="price-label">за 1 билет</span>
+                        <span class="price-total">Итого: ' + total.toLocaleString() + ' ₽</span>
+                        <a href="booking.html?id=${f.id}&type=flight" class="btn btn-primary">Выбрать</a>
+                    </div>
+                </div>`;
             });
-            
-            document.addEventListener('click', function() {
-                dropdown.classList.remove('active');
-            });
+            container.innerHTML = html;
         }
-        
-        function changePassengers(type, delta) {
-            if (type === 'adults') {
-                passengerCounts.adults = Math.max(1, Math.min(9, passengerCounts.adults + delta));
-            } else if (type === 'children') {
-                passengerCounts.children = Math.max(0, Math.min(8, passengerCounts.children + delta));
-            } else if (type === 'infants') {
-                passengerCounts.infants = Math.max(0, Math.min(4, passengerCounts.infants + delta));
-            }
-            
-            document.getElementById('adults-count').textContent = passengerCounts.adults;
-            document.getElementById('children-count').textContent = passengerCounts.children;
-            document.getElementById('infants-count').textContent = passengerCounts.infants;
-            
-            updatePassengersDisplay();
-            applyFlightFilters();
+
+        function getCode(str) {
+            const m = str.match(/\(([^)]+)\)/);
+            return m ? m[1] : str.split(' ')[0];
         }
-        
-        function updatePassengersDisplay() {
-            const parts = [];
-            if (passengerCounts.adults > 0) {
-                parts.push(passengerCounts.adults + ' взросл' + (passengerCounts.adults === 1 ? 'ый' : (passengerCounts.adults < 5 ? 'ых' : 'ых')));
-            }
-            if (passengerCounts.children > 0) {
-                parts.push(passengerCounts.children + ' ребён' + (passengerCounts.children === 1 ? 'ок' : 'ка'));
-            }
-            if (passengerCounts.infants > 0) {
-                parts.push(passengerCounts.infants + ' младен' + (passengerCounts.infants === 1 ? 'ец' : 'ца'));
-            }
-            
-            document.getElementById('passengers-display').textContent = parts.join(', ') || '1 взрослый';
+
+        function getCity(str) {
+            return str.replace(/\([^)]+\)/, '').trim();
+        }
+
+        function formatDate(str) {
+            const d = new Date(str);
+            return d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' });
         }
     </script>
 </body>
