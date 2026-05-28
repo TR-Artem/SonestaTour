@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="data.js"></script>
     <script src="main.js"></script>
+    <script src="interactions.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -56,7 +57,7 @@
             </div>
         </section>
 
-        <!-- Search Form -->
+        <!-- Search Section -->
         <section class="search-section">
             <div class="container">
                 <div class="search-card">
@@ -126,64 +127,133 @@
             </div>
         </section>
 
-        <!-- Filters -->
-        <section class="filters-section">
+        <!-- Content with Sidebar -->
+        <section class="content-with-sidebar">
             <div class="container">
-                <div class="filters-panel">
-                    <div class="filters-row">
-                        <div class="filter-item">
-                            <label>Авиакомпания</label>
-                            <select id="filter-airline" class="filter-select">
-                                <option value="">Все</option>
-                                <option value="Aeroflot">Aeroflot</option>
-                                <option value="Emirates">Emirates</option>
-                                <option value="Turkish Airlines">Turkish Airlines</option>
-                                <option value="Qatar Airways">Qatar Airways</option>
-                                <option value="S7 Airlines">S7 Airlines</option>
-                                <option value="Pobeda">Pobeda</option>
-                                <option value="EgyptAir">EgyptAir</option>
-                            </select>
+                <div class="content-wrapper">
+                    <!-- Sidebar Filters -->
+                    <aside class="sidebar-filters">
+                        <div class="sidebar-header">
+                            <h3>Фильтры</h3>
+                            <button class="sidebar-toggle" id="toggle-filters">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                                </svg>
+                            </button>
                         </div>
-                        <div class="filter-item">
-                            <label>Пересадки</label>
-                            <select id="filter-stops" class="filter-select">
-                                <option value="">Любые</option>
-                                <option value="direct">Прямой</option>
-                                <option value="1stop">1 пересадка</option>
-                            </select>
+                        
+                        <!-- Airline Filter -->
+                        <div class="filter-block">
+                            <button class="filter-block-header" onclick="toggleFilterBlock(this)">
+                                <span>Авиакомпания</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="filter-block-content">
+                                <select id="filter-airline" class="form-control">
+                                    <option value="">Все авиакомпании</option>
+                                    <option value="Aeroflot">Aeroflot</option>
+                                    <option value="Emirates">Emirates</option>
+                                    <option value="Turkish Airlines">Turkish Airlines</option>
+                                    <option value="Qatar Airways">Qatar Airways</option>
+                                    <option value="S7 Airlines">S7 Airlines</option>
+                                    <option value="Pobeda">Pobeda</option>
+                                    <option value="EgyptAir">EgyptAir</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="filter-item">
-                            <label>Цена от</label>
-                            <input type="number" id="filter-price-min" class="filter-input" placeholder="10 000 ₽">
+
+                        <!-- Stops Filter -->
+                        <div class="filter-block">
+                            <button class="filter-block-header" onclick="toggleFilterBlock(this)">
+                                <span>Пересадки</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="filter-block-content">
+                                <div class="filter-checkbox-group">
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="stops" value="" checked>
+                                        <span class="checkmark"></span>
+                                        Любые
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="stops" value="direct">
+                                        <span class="checkmark"></span>
+                                        Прямой
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="stops" value="1stop">
+                                        <span class="checkmark"></span>
+                                        1 пересадка
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="filter-item">
-                            <label>Цена до</label>
-                            <input type="number" id="filter-price-max" class="filter-input" placeholder="100 000 ₽">
+
+                        <!-- Price Range Filter -->
+                        <div class="filter-block">
+                            <button class="filter-block-header" onclick="toggleFilterBlock(this)">
+                                <span>Цена</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="filter-block-content">
+                                <div class="price-range-inputs">
+                                    <div class="price-input-wrap">
+                                        <label>От</label>
+                                        <input type="number" id="filter-price-min" class="form-control" placeholder="10 000">
+                                        <span class="currency">₽</span>
+                                    </div>
+                                    <div class="price-input-wrap">
+                                        <label>До</label>
+                                        <input type="number" id="filter-price-max" class="form-control" placeholder="100 000">
+                                        <span class="currency">₽</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="filter-item">
-                            <label>Сортировка</label>
-                            <select id="filter-sort" class="filter-select">
-                                <option value="price-asc">По цене ↑</option>
-                                <option value="price-desc">По цене ↓</option>
-                                <option value="duration">По времени</option>
-                                <option value="discount">По скидке</option>
-                            </select>
+
+                        <!-- Sort Filter -->
+                        <div class="filter-block">
+                            <button class="filter-block-header" onclick="toggleFilterBlock(this)">
+                                <span>Сортировка</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="filter-block-content">
+                                <select id="filter-sort" class="form-control">
+                                    <option value="price-asc">По цене ↑</option>
+                                    <option value="price-desc">По цене ↓</option>
+                                    <option value="duration">По времени</option>
+                                    <option value="discount">По скидке</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="filter-actions">
-                            <button class="btn-reset" onclick="resetFilters()">Сбросить</button>
+
+                        <div class="filters-actions">
+                            <button class="btn btn-ghost" onclick="resetFilters()">Сбросить фильтры</button>
                         </div>
+                    </aside>
+
+                    <!-- Results -->
+                    <div class="results-area">
+                        <div class="results-header">
+                            <span class="results-count" id="results-count">Загрузка...</span>
+                            <button class="btn btn-outline filter-toggle-btn" id="mobile-filter-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                                </svg>
+                                Фильтры
+                            </button>
+                        </div>
+                        <div class="flights-list" id="flights-list"></div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Results -->
-        <section class="results-section">
-            <div class="container">
-                <div class="results-header">
-                    <span class="results-count" id="results-count">0 рейсов найдено</span>
-                </div>
-                <div class="flights-list" id="flights-list"></div>
             </div>
         </section>
 
@@ -288,6 +358,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             initFilters();
             initPassengers();
+            initMobileFilters();
             renderFlights();
         });
 
@@ -296,10 +367,14 @@
                 filters.airline = e.target.value;
                 renderFlights();
             });
-            document.getElementById('filter-stops').addEventListener('change', e => {
-                filters.stops = e.target.value;
-                renderFlights();
+            
+            document.querySelectorAll('input[name="stops"]').forEach(radio => {
+                radio.addEventListener('change', e => {
+                    filters.stops = e.target.value;
+                    renderFlights();
+                });
             });
+            
             document.getElementById('filter-price-min').addEventListener('input', e => {
                 filters.priceMin = e.target.value;
                 renderFlights();
@@ -328,6 +403,23 @@
             });
         }
 
+        function initMobileFilters() {
+            const toggleBtn = document.getElementById('mobile-filter-btn');
+            const sidebar = document.querySelector('.sidebar-filters');
+            
+            if (toggleBtn && sidebar) {
+                toggleBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('is-open');
+                });
+            }
+        }
+
+        function toggleFilterBlock(btn) {
+            btn.classList.toggle('is-collapsed');
+            const content = btn.nextElementSibling;
+            content.classList.toggle('is-collapsed');
+        }
+
         function changePax(type, delta) {
             if (type === 'adults') pax.adults = Math.max(1, Math.min(9, pax.adults + delta));
             if (type === 'children') pax.children = Math.max(0, Math.min(8, pax.children + delta));
@@ -352,7 +444,7 @@
         function resetFilters() {
             filters = { airline: '', stops: '', priceMin: '', priceMax: '', sort: 'price-asc' };
             document.getElementById('filter-airline').value = '';
-            document.getElementById('filter-stops').value = '';
+            document.querySelectorAll('input[name="stops"]').forEach(r => r.checked = r.value === '');
             document.getElementById('filter-price-min').value = '';
             document.getElementById('filter-price-max').value = '';
             document.getElementById('filter-sort').value = 'price-asc';
