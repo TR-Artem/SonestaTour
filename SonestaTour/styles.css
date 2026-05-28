@@ -6849,3 +6849,230 @@ textarea::placeholder {
     font-weight: 700 !important;
     z-index: 2 !important;
 }
+
+/* ===== CRUISE BOOKING MODAL STYLES ===== */
+
+.modal-cruise-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+}
+
+.modal-cruise-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.modal-cruise-info-item svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.modal-cruise-info-item .info-label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 3px;
+}
+
+.modal-cruise-info-item .info-value {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.modal-detail-route {
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.modal-cruise-ports {
+    margin-bottom: 20px;
+}
+
+.modal-cruise-ports h4 {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.ports-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.port-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.port-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+.port-name {
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.port-line {
+    width: 20px;
+    height: 2px;
+    background: var(--border-color);
+}
+
+.modal-cruise-features {
+    margin-bottom: 20px;
+}
+
+.modal-cruise-features h4 {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.modal-detail-price {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
+    border-radius: var(--radius-md);
+    color: white;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.modal-detail-price .price-label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.modal-detail-price .price-values {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.modal-detail-price .price-old {
+    font-size: 16px;
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.modal-detail-price .price-new {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.modal-detail-price .price-note {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-left: auto;
+}
+
+.modal-cruise-form {
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.modal-cruise-form h4 {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.modal-cruise-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.modal-cruise-form .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-cruise-form label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-medium);
+    margin-bottom: 6px;
+}
+
+.modal-cruise-form input,
+.modal-cruise-form select,
+.modal-cruise-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s;
+}
+
+.modal-cruise-form input:focus,
+.modal-cruise-form select:focus,
+.modal-cruise-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0,168,204,0.1);
+}
+
+.modal-cruise-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.modal-cruise-form .btn-block {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+}
+
+.modal-cruise-form .form-note {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .modal-cruise-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .modal-cruise-form .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-detail-price {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .modal-detail-price .price-note {
+        margin-left: 0;
+    }
+}

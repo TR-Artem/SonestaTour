@@ -250,6 +250,150 @@
         </section>
     </main>
 
+    <!-- Cruise Booking Modal -->
+    <div class="modal-overlay" id="cruise-booking-modal">
+        <div class="modal-box modal-detail">
+            <button class="modal-close" id="cruise-modal-close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="modal-detail-header">
+                <div class="modal-detail-image" id="cruise-modal-image"></div>
+                <div class="modal-detail-badges">
+                    <span class="modal-detail-badge" id="cruise-modal-badge"></span>
+                </div>
+            </div>
+            <div class="modal-detail-content">
+                <h2 id="cruise-modal-title"></h2>
+                <p class="modal-detail-route" id="cruise-modal-route"></p>
+                
+                <div class="modal-cruise-info">
+                    <div class="modal-cruise-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                        </svg>
+                        <div>
+                            <span class="info-label">Длительность</span>
+                            <span class="info-value" id="cruise-modal-duration"></span>
+                        </div>
+                    </div>
+                    <div class="modal-cruise-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <div>
+                            <span class="info-label">Дата отправления</span>
+                            <span class="info-value" id="cruise-modal-date"></span>
+                        </div>
+                    </div>
+                    <div class="modal-cruise-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"/>
+                        </svg>
+                        <div>
+                            <span class="info-label">Лайнер</span>
+                            <span class="info-value" id="cruise-modal-ship"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-cruise-ports">
+                    <h4>Маршрут</h4>
+                    <div class="ports-list" id="cruise-modal-ports"></div>
+                </div>
+                
+                <div class="modal-cruise-features" id="cruise-modal-features"></div>
+                
+                <div class="modal-detail-price">
+                    <span class="price-label">Стоимость от</span>
+                    <div class="price-values">
+                        <span class="price-old" id="cruise-modal-old-price"></span>
+                        <span class="price-new" id="cruise-modal-price"></span>
+                    </div>
+                    <span class="price-note">за человека</span>
+                </div>
+                
+                <div class="modal-cruise-form">
+                    <h4>Оставить заявку</h4>
+                    <form id="cruise-booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Ваше имя</label>
+                                <input type="text" name="name" placeholder="Иван Иванов" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Телефон</label>
+                                <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" placeholder="email@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Тип каюты</label>
+                                <select name="cabin" id="cruise-cabin-select" required>
+                                    <option value="">Выберите каюту</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Количество пассажиров</label>
+                                <select name="guests" required>
+                                    <option value="">Выберите</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Тип питания</label>
+                                <select name="nutrition">
+                                    <option value="">Выберите</option>
+                                    <option value="bb">Только завтрак</option>
+                                    <option value="hb">Завтрак + ужин</option>
+                                    <option value="fb">Полный пансион</option>
+                                    <option value="ai">Всё включено</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Комментарий</label>
+                            <textarea name="comment" placeholder="Особые пожелания, вопросы..." rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+                        <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="booking-success-modal">
+        <div class="modal-box">
+            <button class="modal-close" id="booking-success-close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="modal-icon success">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+            </div>
+            <h2>Заявка отправлена!</h2>
+            <p>Наш менеджер свяжется с вами в ближайшее время для уточнения деталей.</p>
+            <a href="cruises.html" class="btn btn-primary">Хорошо</a>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -294,6 +438,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             initFilters();
             initMobileFilters();
+            initBookingModal();
             renderCruises();
         });
 
@@ -457,8 +602,8 @@
                 html += `</div>
                         <div class="cruise-footer">
                             <div class="cruise-price">
-                                ${c.oldPrice ? '<span class="old-price">' + c.oldPrice.toLocaleString('ru-RU') + ' \u20bd</span>' : ''}
-                                <span class="new-price">' + c.price.toLocaleString('ru-RU') + ' \u20bd</span>
+                                ${c.oldPrice ? '<span class="old-price">' + c.oldPrice.toLocaleString('ru-RU') + ' ₽</span>' : ''}
+                                <span class="new-price">` + c.price.toLocaleString('ru-RU') + ` ₽</span>
                                 <span class="price-note">за человека</span>
                             </div>
                             <div class="cruise-rating">
@@ -466,7 +611,7 @@
                                 <span class="rating-value">${c.rating}</span>
                             </div>
                         </div>
-                        <a href="booking.html?id=${c.id}&type=cruise" class="btn btn-primary cruise-btn">Забронировать</a>
+                        <button class="btn btn-primary cruise-btn" onclick="openCruiseBooking('${c.id}')">Забронировать</button>
                     </div>
                 </div>`;
             });
@@ -476,6 +621,84 @@
         function formatDateShort(dateStr) {
             const date = new Date(dateStr);
             return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+
+        function initBookingModal() {
+            document.getElementById('cruise-modal-close').addEventListener('click', function() {
+                document.getElementById('cruise-booking-modal').classList.remove('show');
+            });
+            
+            document.getElementById('cruise-booking-modal').addEventListener('click', function(e) {
+                if (e.target === this) this.classList.remove('show');
+            });
+            
+            document.getElementById('booking-success-close').addEventListener('click', function() {
+                document.getElementById('booking-success-modal').classList.remove('show');
+            });
+            
+            document.getElementById('booking-success-modal').addEventListener('click', function(e) {
+                if (e.target === this) this.classList.remove('show');
+            });
+            
+            document.getElementById('cruise-booking-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                document.getElementById('cruise-booking-modal').classList.remove('show');
+                document.getElementById('booking-success-modal').classList.add('show');
+                this.reset();
+            });
+        }
+
+        function openCruiseBooking(cruiseId) {
+            const data = window.SonestaData;
+            if (!data || !data.cruises) return;
+            
+            const cruise = data.cruises.find(c => c.id === cruiseId);
+            if (!cruise) return;
+            
+            document.getElementById('cruise-modal-image').style.backgroundImage = "url('" + cruise.image + "')";
+            document.getElementById('cruise-modal-title').textContent = cruise.name;
+            document.getElementById('cruise-modal-route').textContent = cruise.route;
+            document.getElementById('cruise-modal-duration').textContent = cruise.duration + ' дней';
+            document.getElementById('cruise-modal-date').textContent = formatDateShort(cruise.departureDate);
+            document.getElementById('cruise-modal-ship').textContent = cruise.ship;
+            
+            const badge = document.getElementById('cruise-modal-badge');
+            badge.textContent = cruise.company;
+            badge.className = 'modal-detail-badge primary';
+            
+            const portsHtml = cruise.ports.map(port => 
+                '<div class="port-item">' +
+                    '<span class="port-dot"></span>' +
+                    '<span class="port-name">' + port + '</span>' +
+                '</div>'
+            ).join('<div class="port-line"></div>');
+            document.getElementById('cruise-modal-ports').innerHTML = portsHtml;
+            
+            const featuresHtml = '<h4>Что включено</h4><div class="modal-features-list">' +
+                cruise.features.map(f => 
+                    '<span class="modal-feature">' +
+                    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
+                    '<polyline points="20 6 9 17 4 12"/>' +
+                    '</svg>' + f + '</span>'
+                ).join('') +
+                '</div>';
+            document.getElementById('cruise-modal-features').innerHTML = featuresHtml;
+            
+            if (cruise.oldPrice) {
+                document.getElementById('cruise-modal-old-price').innerHTML = cruise.oldPrice.toLocaleString('ru-RU') + ' ₽';
+                document.getElementById('cruise-modal-old-price').style.display = '';
+            } else {
+                document.getElementById('cruise-modal-old-price').style.display = 'none';
+            }
+            document.getElementById('cruise-modal-price').innerHTML = cruise.price.toLocaleString('ru-RU') + ' ₽';
+            
+            const cabinSelect = document.getElementById('cruise-cabin-select');
+            cabinSelect.innerHTML = '<option value="">Выберите каюту</option>';
+            cruise.cabinTypes.forEach(cabin => {
+                cabinSelect.innerHTML += '<option value="' + cabin + '">' + cabin + '</option>';
+            });
+            
+            document.getElementById('cruise-booking-modal').classList.add('show');
         }
     </script>
 </body>
