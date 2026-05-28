@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Круизы — Sonesta Tour</title>
-    <meta name="description" content="Круизы от Sonesta Tour: морские маршруты, лайнеры, программы и советы по подбору.">
+    <meta name="description" content="Круизы от Sonesta Tour: морские маршруты, лайнеры и лучшие направления.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="data.js"></script>
     <script src="main.js"></script>
+    <script src="interactions.js"></script>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-top">
             <div class="container">
@@ -44,119 +46,204 @@
     </header>
 
     <main>
-        <section class="page-hero">
+        <!-- Hero Banner -->
+        <section class="cruises-hero">
+            <div class="cruises-hero-bg"></div>
             <div class="container">
-                <div class="breadcrumbs">
-                    <a href="index.html">Главная</a>
-                    <span class="sep">/</span>
-                    <span>Круизы</span>
+                <div class="cruises-hero-content">
+                    <h1>Круизы</h1>
+                    <p>Морские маршруты, комфортные лайнеры и продуманные программы</p>
                 </div>
-                <h2 class="page-title">Круизы</h2>
-                <p class="page-subtitle">Морские маршруты, комфортные лайнеры и продуманные программы — отдых без переездов</p>
             </div>
         </section>
 
-        <section class="page-content">
+        <!-- Content with Sidebar -->
+        <section class="content-with-sidebar">
             <div class="container">
-                <!-- Filters -->
-                <div class="filters-section">
-                    <div class="filters-grid">
-                        <div class="filter-group">
-                            <label>Регион</label>
-                            <select id="filter-region" class="form-control">
-                                <option value="">Все регионы</option>
-                                <option value="mediterranean">Средиземноморье</option>
-                                <option value="gulf">Персидский залив</option>
-                                <option value="norway">Скандинавия</option>
-                                <option value="caribbean">Карибы</option>
-                                <option value="asia">Азия</option>
-                            </select>
+                <div class="content-wrapper">
+                    <!-- Sidebar Filters -->
+                    <aside class="sidebar-filters">
+                        <div class="sidebar-header">
+                            <h3>Фильтры</h3>
+                            <button class="sidebar-toggle" id="toggle-filters">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
                         </div>
-                        <div class="filter-group">
-                            <label>Дней</label>
-                            <select id="filter-duration" class="form-control">
-                                <option value="">Любое</option>
-                                <option value="5">до 5 дней</option>
-                                <option value="7">7 дней</option>
-                                <option value="10">10 дней</option>
-                                <option value="14">14+ дней</option>
-                            </select>
+                        
+                        <!-- Region Filter -->
+                        <div class="filter-block">
+                            <button class="filter-block-header" onclick="toggleFilterBlock(this)">
+                                <span>Регион</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="filter-block-content">
+                                <select id="filter-region" class="form-control">
+                                    <option value="">Все регионы</option>
+                                    <option value="mediterranean">Средиземноморье</option>
+                                    <option value="gulf">Персидский залив</option>
+                                    <option value="norway">Скандинавия</option>
+                                    <option value="caribbean">Карибы</option>
+                                    <option value="asia">Азия</option>
+                                    <option value="islands">Острова</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="filter-group">
-                            <label>Цена от</label>
-                            <input type="number" id="filter-price-min" class="form-control" placeholder="Мин. цена">
+
+                        <!-- Duration Filter -->
+                        <div class="filter-block">
+                            <button class="filter-block-header" onclick="toggleFilterBlock(this)">
+                                <span>Количество дней</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="filter-block-content">
+                                <div class="filter-checkbox-group">
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="duration" value="" checked>
+                                        <span class="checkmark"></span>
+                                        Любое
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="duration" value="5">
+                                        <span class="checkmark"></span>
+                                        до 5 дней
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="duration" value="7">
+                                        <span class="checkmark"></span>
+                                        7 дней
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="duration" value="10">
+                                        <span class="checkmark"></span>
+                                        10 дней
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="radio" name="duration" value="14">
+                                        <span class="checkmark"></span>
+                                        14+ дней
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="filter-group">
-                            <label>Цена до</label>
-                            <input type="number" id="filter-price-max" class="form-control" placeholder="Макс. цена">
+
+                        <!-- Price Range Filter -->
+                        <div class="filter-block">
+                            <button class="filter-block-header" onclick="toggleFilterBlock(this)">
+                                <span>Цена</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="filter-block-content">
+                                <div class="price-range-inputs">
+                                    <div class="price-input-wrap">
+                                        <label>От</label>
+                                        <input type="number" id="filter-price-min" class="form-control" placeholder="50 000">
+                                        <span class="currency">₽</span>
+                                    </div>
+                                    <div class="price-input-wrap">
+                                        <label>До</label>
+                                        <input type="number" id="filter-price-max" class="form-control" placeholder="200 000">
+                                        <span class="currency">₽</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="filter-group">
-                            <label>Сортировка</label>
-                            <select id="filter-sort" class="form-control">
-                                <option value="popular">По популярности</option>
-                                <option value="price-asc">Цена по возрастанию</option>
-                                <option value="price-desc">Цена по убыванию</option>
-                                <option value="rating">По рейтингу</option>
-                            </select>
+
+                        <!-- Sort Filter -->
+                        <div class="filter-block">
+                            <button class="filter-block-header" onclick="toggleFilterBlock(this)">
+                                <span>Сортировка</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="filter-block-content">
+                                <select id="filter-sort" class="form-control">
+                                    <option value="discount">По скидке</option>
+                                    <option value="price-asc">По цене ↑</option>
+                                    <option value="price-desc">По цене ↓</option>
+                                    <option value="rating">По рейтингу</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="filters-actions">
-                        <button class="btn btn-ghost" onclick="resetCruiseFilters()">Сбросить</button>
+
+                        <div class="filters-actions">
+                            <button class="btn btn-ghost" onclick="resetCruiseFilters()">Сбросить фильтры</button>
+                        </div>
+                    </aside>
+
+                    <!-- Results -->
+                    <div class="results-area">
+                        <div class="results-header">
+                            <span class="results-count" id="results-count">Загрузка...</span>
+                            <button class="btn btn-outline filter-toggle-btn" id="mobile-filter-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                                </svg>
+                                Фильтры
+                            </button>
+                        </div>
+                        <div class="cruises-grid" id="cruises-grid"></div>
                     </div>
                 </div>
-
-                <!-- Results Count -->
-                <div class="results-header">
-                    <span class="results-count">0 круизов найдено</span>
-                </div>
-
-                <!-- Cruises Grid -->
-                <div class="cruises-grid" id="cruises-grid"></div>
             </div>
         </section>
 
-        <!-- Info Cards -->
-        <section class="page-content" style="background:var(--bg-light);">
+        <!-- Popular Destinations -->
+        <section class="why-section">
             <div class="container">
                 <h2 class="section-title">Популярные направления</h2>
-                <div class="content-grid">
-                    <article class="info-card">
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4M4 21V10.5M20 21V10.5"/>
+                            </svg>
+                        </div>
                         <h3>Средиземноморье</h3>
-                        <p>Италия, Испания, Франция, Греция — идеальный баланс моря и городов.</p>
-                        <div class="tag-row">
-                            <span class="tag">7–12 ночей</span>
-                            <span class="tag">Порты</span>
-                            <span class="tag">Экскурсии</span>
-                        </div>
-                    </article>
-                    <article class="info-card">
-                        <h3>Персидский залив</h3>
-                        <p>ОАЭ, Катар, Оман — современный сервис и комфортная погода.</p>
-                        <div class="tag-row">
-                            <span class="tag">Зима</span>
-                            <span class="tag">Комфорт</span>
-                            <span class="tag">Город+море</span>
-                        </div>
-                    </article>
-                    <article class="info-card">
-                        <h3>Скандинавия</h3>
-                        <p>Северная Европа: красивые маршруты, культура и прогулки по городам.</p>
-                        <div class="tag-row">
-                            <span class="tag">Лето</span>
-                            <span class="tag">Север</span>
-                            <span class="tag">Впечатления</span>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="callout">
-                    <div class="callout-body">
-                        <h3>Подберём круиз под вас</h3>
-                        <p>Подскажем лайнер, каюту, пакет напитков и экскурсии — чтобы всё было без сюрпризов.</p>
+                        <p>Италия, Испания, Франция, Греция — идеальный баланс моря и городов</p>
                     </div>
-                    <div class="callout-actions">
-                        <a class="btn btn-primary" href="contacts.html">Связаться</a>
-                        <a class="btn btn-ghost" href="promotions.html">Акции</a>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h3>Персидский залив</h3>
+                        <p>ОАЭ, Катар, Оман — современный сервис и комфортная погода</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 3v18M5.5 8.5L12 3l6.5 5.5M5.5 15.5L12 21l6.5-5.5"/>
+                            </svg>
+                        </div>
+                        <h3>Скандинавия</h3>
+                        <p>Северная Европа: красивые маршруты, культура и фьорды</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <div>
+                        <h2>Подберём круиз под вас</h2>
+                        <p>Лайнер, каюта, пакет напитков и экскурсии — чтобы всё было без сюрпризов</p>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="contacts.html" class="btn btn-primary">Связаться</a>
+                        <a href="promotions.html" class="btn btn-outline">Акции</a>
                     </div>
                 </div>
             </div>
@@ -197,139 +284,195 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Sonesta Tour. Все права защищены.</p>
-                <div class="footer-links">
-                    <a href="#">Политика конфиденциальности</a>
-                    <a href="#">Условия использования</a>
-                    <a href="#">Пользовательское соглашение</a>
-                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        let cruiseFilters = { region: '', duration: '', priceMin: '', priceMax: '', sort: 'popular' };
+        let cruiseFilters = { region: '', duration: '', priceMin: '', priceMax: '', sort: 'discount' };
         
         document.addEventListener('DOMContentLoaded', function() {
-            bindCruiseFilters();
-            applyCruiseFilters();
+            initFilters();
+            initMobileFilters();
+            renderCruises();
         });
-        
-        function bindCruiseFilters() {
-            document.getElementById('filter-region').addEventListener('change', function(e) {
+
+        function initFilters() {
+            document.getElementById('filter-region').addEventListener('change', e => {
                 cruiseFilters.region = e.target.value;
-                applyCruiseFilters();
+                renderCruises();
             });
-            document.getElementById('filter-duration').addEventListener('change', function(e) {
-                cruiseFilters.duration = e.target.value;
-                applyCruiseFilters();
+            
+            document.querySelectorAll('input[name="duration"]').forEach(radio => {
+                radio.addEventListener('change', e => {
+                    cruiseFilters.duration = e.target.value;
+                    renderCruises();
+                });
             });
-            document.getElementById('filter-price-min').addEventListener('change', function(e) {
+            
+            document.getElementById('filter-price-min').addEventListener('input', e => {
                 cruiseFilters.priceMin = e.target.value;
-                applyCruiseFilters();
+                renderCruises();
             });
-            document.getElementById('filter-price-max').addEventListener('change', function(e) {
+            document.getElementById('filter-price-max').addEventListener('input', e => {
                 cruiseFilters.priceMax = e.target.value;
-                applyCruiseFilters();
+                renderCruises();
             });
-            document.getElementById('filter-sort').addEventListener('change', function(e) {
+            document.getElementById('filter-sort').addEventListener('change', e => {
                 cruiseFilters.sort = e.target.value;
-                applyCruiseFilters();
+                renderCruises();
             });
         }
-        
-        function applyCruiseFilters() {
+
+        function initMobileFilters() {
+            const toggleBtn = document.getElementById('mobile-filter-btn');
+            const sidebar = document.querySelector('.sidebar-filters');
+            const closeBtn = document.getElementById('toggle-filters');
+            
+            if (toggleBtn && sidebar) {
+                toggleBtn.addEventListener('click', () => {
+                    sidebar.classList.add('is-open');
+                });
+            }
+            if (closeBtn && sidebar) {
+                closeBtn.addEventListener('click', () => {
+                    sidebar.classList.remove('is-open');
+                });
+            }
+        }
+
+        function toggleFilterBlock(btn) {
+            btn.classList.toggle('is-collapsed');
+            const content = btn.nextElementSibling;
+            content.classList.toggle('is-collapsed');
+        }
+
+        function resetCruiseFilters() {
+            cruiseFilters = { region: '', duration: '', priceMin: '', priceMax: '', sort: 'discount' };
+            document.getElementById('filter-region').value = '';
+            document.querySelectorAll('input[name="duration"]').forEach(r => r.checked = r.value === '');
+            document.getElementById('filter-price-min').value = '';
+            document.getElementById('filter-price-max').value = '';
+            document.getElementById('filter-sort').value = 'discount';
+            renderCruises();
+        }
+
+        function renderCruises() {
             const data = window.SonestaData;
             if (!data || !data.cruises) return;
             
-            let filtered = data.cruises.slice();
+            let list = data.cruises.slice();
             
             if (cruiseFilters.region) {
-                filtered = filtered.filter(c => {
+                list = list.filter(c => {
                     const route = c.route.toLowerCase();
-                    if (cruiseFilters.region === 'mediterranean') return route.includes('итали') || route.includes('испания') || route.includes('франция') || route.includes('греция');
-                    if (cruiseFilters.region === 'gulf') return route.includes('оаэ') || route.includes('катар') || route.includes('оман');
-                    if (cruiseFilters.region === 'norway') return route.includes('норвегия') || route.includes('берген');
-                    if (cruiseFilters.region === 'caribbean') return route.includes('кариб');
-                    if (cruiseFilters.region === 'asia') return route.includes('япон') || route.includes('токо') || route.includes('ази');
+                    if (cruiseFilters.region === 'mediterranean') return route.includes('итали') || route.includes('испания') || route.includes('франция') || route.includes('монако') || route.includes('греция');
+                    if (cruiseFilters.region === 'gulf') return route.includes('оаэ') || route.includes('катар') || route.includes('оман') || route.includes('дубай');
+                    if (cruiseFilters.region === 'norway') return route.includes('норвегия') || route.includes('берген') || route.includes('тромсе');
+                    if (cruiseFilters.region === 'caribbean') return route.includes('кариб') || route.includes('ямайка') || route.includes('багам');
+                    if (cruiseFilters.region === 'asia') return route.includes('япон') || route.includes('токио') || route.includes('ази');
+                    if (cruiseFilters.region === 'islands') return route.includes('сейшел') || route.includes('гавай');
                     return true;
                 });
             }
+            
             if (cruiseFilters.duration) {
                 const dur = parseInt(cruiseFilters.duration);
-                if (dur === 5) filtered = filtered.filter(c => c.duration <= 5);
-                else if (dur === 7) filtered = filtered.filter(c => c.duration === 7);
-                else if (dur === 10) filtered = filtered.filter(c => c.duration === 10);
-                else if (dur === 14) filtered = filtered.filter(c => c.duration >= 14);
+                if (dur === 5) list = list.filter(c => c.duration <= 5);
+                else if (dur === 7) list = list.filter(c => c.duration === 7);
+                else if (dur === 10) list = list.filter(c => c.duration === 10);
+                else if (dur === 14) list = list.filter(c => c.duration >= 14);
             }
+            
             if (cruiseFilters.priceMin) {
-                filtered = filtered.filter(c => c.price >= parseInt(cruiseFilters.priceMin));
+                list = list.filter(c => c.price >= parseInt(cruiseFilters.priceMin));
             }
             if (cruiseFilters.priceMax) {
-                filtered = filtered.filter(c => c.price <= parseInt(cruiseFilters.priceMax));
+                list = list.filter(c => c.price <= parseInt(cruiseFilters.priceMax));
             }
             
             switch (cruiseFilters.sort) {
-                case 'price-asc': filtered.sort((a,b) => a.price - b.price); break;
-                case 'price-desc': filtered.sort((a,b) => b.price - a.price); break;
-                case 'rating': filtered.sort((a,b) => (b.rating||0) - (a.rating||0)); break;
-                default: filtered.sort((a,b) => (b.discount||0) - (a.discount||0));
+                case 'price-asc': list.sort((a,b) => a.price - b.price); break;
+                case 'price-desc': list.sort((a,b) => b.price - a.price); break;
+                case 'rating': list.sort((a,b) => (b.rating||0) - (a.rating||0)); break;
+                default: list.sort((a,b) => (b.discount||0) - (a.discount||0));
             }
             
-            renderCruisesOnPage(filtered);
-            document.querySelector('.results-count').textContent = filtered.length + ' круизов найдено';
-        }
-        
-        function renderCruisesOnPage(cruises) {
-            const container = document.getElementById('cruises-grid');
-            if (!container) return;
+            document.getElementById('results-count').textContent = list.length + ' круизов найдено';
             
-            if (cruises.length === 0) {
+            const container = document.getElementById('cruises-grid');
+            if (list.length === 0) {
                 container.innerHTML = '<div class="no-results"><p>Круизы не найдены</p><button class="btn btn-primary" onclick="resetCruiseFilters()">Сбросить фильтры</button></div>';
                 return;
             }
             
             let html = '';
-            cruises.forEach(function(cruise) {
-                html += '<div class="cruise-card">' +
-                    (cruise.discount ? '<div class="tour-badge">-' + cruise.discount + '%</div>' : '') +
-                    '<div class="cruise-image" style="background-image: url(\'' + cruise.image + '\')"></div>' +
-                    '<div class="cruise-content">' +
-                    '<div class="cruise-company">' + cruise.company + '</div>' +
-                    '<h3>' + cruise.name + '</h3>' +
-                    '<p class="cruise-ship">Лайнер: ' + cruise.ship + '</p>' +
-                    '<p class="cruise-route">' + cruise.route + '</p>' +
-                    '<div class="cruise-details">' +
-                    '<span>' + cruise.duration + ' дней</span>' +
-                    '<span>Дата: ' + formatDateShort(cruise.departureDate) + '</span>' +
-                    '</div>' +
-                    '<div class="cruise-ports"><strong>Порты:</strong> ' + cruise.ports.join(' → ') + '</div>' +
-                    '<div class="cruise-features">';
+            list.forEach(c => {
+                html += `
+                <div class="cruise-card">
+                    ${c.discount ? '<div class="tour-badge">-' + c.discount + '%</div>' : ''}
+                    <div class="cruise-image" style="background-image: url('${c.image}')">
+                        <div class="cruise-company-badge">${c.company}</div>
+                    </div>
+                    <div class="cruise-content">
+                        <h3 class="cruise-name">${c.name}</h3>
+                        <p class="cruise-ship">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"/>
+                            </svg>
+                            ${c.ship}
+                        </p>
+                        <p class="cruise-route">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                            ${c.route}
+                        </p>
+                        <div class="cruise-details">
+                            <span class="cruise-duration">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                                ${c.duration} дней
+                            </span>
+                            <span class="cruise-date">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                    <path d="M16 2v4M8 2v4M3 10h18"/>
+                                </svg>
+                                ${formatDateShort(c.departureDate)}
+                            </span>
+                        </div>
+                        <div class="cruise-ports">
+                            <strong>Порты:</strong> ${c.ports.join(' → ')}
+                        </div>
+                        <div class="cruise-features">`;
                 
-                cruise.features.slice(0, 3).forEach(function(f) {
-                    html += '<span class="feature">' + f + '</span>';
+                c.features.slice(0, 4).forEach(f => {
+                    html += `<span class="feature-tag">${f}</span>`;
                 });
                 
-                html += '</div><div class="cruise-price">';
-                if (cruise.oldPrice) {
-                    html += '<span class="old-price">' + cruise.oldPrice.toLocaleString('ru-RU') + ' ₽</span>';
-                }
-                html += '<span class="new-price">' + cruise.price.toLocaleString('ru-RU') + ' ₽</span></div>' +
-                    '<a href="booking.html?id=' + cruise.id + '&type=cruise" class="btn btn-primary">Забронировать</a>' +
-                    '</div></div>';
+                html += `</div>
+                        <div class="cruise-footer">
+                            <div class="cruise-price">
+                                ${c.oldPrice ? '<span class="old-price">' + c.oldPrice.toLocaleString('ru-RU') + ' ₽</span>' : ''}
+                                <span class="new-price">' + c.price.toLocaleString('ru-RU') + ' ₽</span>
+                                <span class="price-note">за человека</span>
+                            </div>
+                            <div class="cruise-rating">
+                                <span class="stars">${'★'.repeat(Math.round(c.rating))}${'☆'.repeat(5-Math.round(c.rating))}</span>
+                                <span class="rating-value">${c.rating}</span>
+                            </div>
+                        </div>
+                        <a href="booking.html?id=${c.id}&type=cruise" class="btn btn-primary cruise-btn">Забронировать</a>
+                    </div>
+                </div>`;
             });
             container.innerHTML = html;
         }
-        
-        function resetCruiseFilters() {
-            cruiseFilters = { region: '', duration: '', priceMin: '', priceMax: '', sort: 'popular' };
-            document.getElementById('filter-region').value = '';
-            document.getElementById('filter-duration').value = '';
-            document.getElementById('filter-price-min').value = '';
-            document.getElementById('filter-price-max').value = '';
-            document.getElementById('filter-sort').value = 'popular';
-            applyCruiseFilters();
-        }
-        
+
         function formatDateShort(dateStr) {
             const date = new Date(dateStr);
             return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' });
