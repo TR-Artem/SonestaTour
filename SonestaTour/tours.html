@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="data.js"></script>
+    <script src="main.js"></script>
 </head>
 <body>
     <header class="header">
@@ -19,6 +21,10 @@
                         <h1><a class="logo-link" href="index.html">Sonesta Tour</a></h1>
                     </div>
                     <div class="header-contacts">
+                        <a href="#" class="header-favorites" onclick="openModal('favorites-modal'); return false;">
+                            <span>Избранное</span>
+                            <span class="favorites-count" style="display:none">0</span>
+                        </a>
                         <a href="tel:+79217558852" class="phone">+7 (921) 755-88-52</a>
                         <a href="mailto:info@sonestatour.ru" class="email">info@sonestatour.ru</a>
                     </div>
@@ -49,13 +55,82 @@
                     <span class="sep">/</span>
                     <span>Туры</span>
                 </div>
-                <h2 class="page-title">Туры</h2>
-                <p class="page-subtitle">Подбор отдыха под ваш бюджет и предпочтения: пляж, экскурсии, семейные, премиум.</p>
+                <h2 class="page-title">Поиск туров</h2>
+                <p class="page-subtitle">Найдите идеальный тур по лучшим направлениям мира</p>
             </div>
         </section>
 
         <section class="page-content">
             <div class="container">
+                <!-- Search & Filters -->
+                <div class="filters-section">
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <label>Направление</label>
+                            <select id="filter-destination" class="form-control">
+                                <option value="">Все направления</option>
+                                <option value="turkey">Турция</option>
+                                <option value="egypt">Египет</option>
+                                <option value="uae">ОАЭ</option>
+                                <option value="thailand">Таиланд</option>
+                                <option value="maldives">Мальдивы</option>
+                                <option value="spain">Испания</option>
+                                <option value="greece">Греция</option>
+                                <option value="italy">Италия</option>
+                                <option value="vietnam">Вьетнам</option>
+                                <option value="indonesia">Индонезия</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Ночей</label>
+                            <select id="filter-nights" class="form-control">
+                                <option value="">Любое</option>
+                                <option value="3">3 ночи</option>
+                                <option value="5">5 ночей</option>
+                                <option value="7">7 ночей</option>
+                                <option value="10">10 ночей</option>
+                                <option value="14">14 ночей</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Цена от</label>
+                            <input type="number" id="filter-price-min" class="form-control" placeholder="Мин. цена">
+                        </div>
+                        <div class="filter-group">
+                            <label>Цена до</label>
+                            <input type="number" id="filter-price-max" class="form-control" placeholder="Макс. цена">
+                        </div>
+                        <div class="filter-group">
+                            <label>Сортировка</label>
+                            <select id="filter-sort" class="form-control">
+                                <option value="popular">По популярности</option>
+                                <option value="price-asc">Цена по возрастанию</option>
+                                <option value="price-desc">Цена по убыванию</option>
+                                <option value="discount">По скидке</option>
+                                <option value="rating">По рейтингу</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filters-actions">
+                        <button class="btn btn-ghost" onclick="resetTourFilters()">Сбросить</button>
+                    </div>
+                </div>
+
+                <!-- Results Count -->
+                <div class="results-header">
+                    <span class="results-count">0 результатов</span>
+                    <button class="btn btn-ghost btn-sm" onclick="openModal('favorites-modal')">Избранное (0)</button>
+                </div>
+
+                <!-- Tours Grid -->
+                <div class="tours-grid" id="tours-grid"></div>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="page-content" style="background:var(--bg-light);">
+            <div class="container">
+                <h2 class="section-title">Типы туров</h2>
                 <div class="content-grid">
                     <article class="info-card">
                         <h3>Пляжный отдых</h3>
@@ -100,6 +175,18 @@
         </section>
     </main>
 
+    <!-- Favorites Modal -->
+    <div class="modal" id="favorites-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(document.getElementById('favorites-modal'))">×</button>
+            <h2 class="modal-title">Избранное</h2>
+            <div id="favorites-list" class="favorites-list">
+                <p class="empty-favorites">Пока нет избранных туров</p>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -142,8 +229,126 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        let tourFilters = { destination: '', nights: '', priceMin: '', priceMax: '', sort: 'popular' };
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // URL params
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('dest')) {
+                document.getElementById('filter-destination').value = urlParams.get('dest');
+                tourFilters.destination = urlParams.get('dest');
+            }
+            
+            // Bind filter events
+            document.getElementById('filter-destination').addEventListener('change', function(e) {
+                tourFilters.destination = e.target.value;
+                applyTourFilters();
+            });
+            document.getElementById('filter-nights').addEventListener('change', function(e) {
+                tourFilters.nights = e.target.value;
+                applyTourFilters();
+            });
+            document.getElementById('filter-price-min').addEventListener('change', function(e) {
+                tourFilters.priceMin = e.target.value;
+                applyTourFilters();
+            });
+            document.getElementById('filter-price-max').addEventListener('change', function(e) {
+                tourFilters.priceMax = e.target.value;
+                applyTourFilters();
+            });
+            document.getElementById('filter-sort').addEventListener('change', function(e) {
+                tourFilters.sort = e.target.value;
+                applyTourFilters();
+            });
+            
+            applyTourFilters();
+            updateFavoritesOnPage();
+        });
+        
+        function applyTourFilters() {
+            const data = window.SonestaData;
+            if (!data || !data.tours) return;
+            
+            let filtered = data.tours.slice();
+            
+            if (tourFilters.destination) {
+                filtered = filtered.filter(t => t.destination === tourFilters.destination);
+            }
+            if (tourFilters.nights) {
+                filtered = filtered.filter(t => t.duration === parseInt(tourFilters.nights));
+            }
+            if (tourFilters.priceMin) {
+                filtered = filtered.filter(t => t.price >= parseInt(tourFilters.priceMin));
+            }
+            if (tourFilters.priceMax) {
+                filtered = filtered.filter(t => t.price <= parseInt(tourFilters.priceMax));
+            }
+            
+            switch (tourFilters.sort) {
+                case 'price-asc': filtered.sort((a,b) => a.price - b.price); break;
+                case 'price-desc': filtered.sort((a,b) => b.price - a.price); break;
+                case 'discount': filtered.sort((a,b) => (b.discount||0) - (a.discount||0)); break;
+                case 'rating': filtered.sort((a,b) => (b.rating||0) - (a.rating||0)); break;
+                default: filtered.sort((a,b) => (b.hot?1:0) - (a.hot?1:0));
+            }
+            
+            renderToursOnPage(filtered);
+            document.querySelector('.results-count').textContent = filtered.length + ' туров найдено';
+        }
+        
+        function renderToursOnPage(tours) {
+            const container = document.getElementById('tours-grid');
+            if (!container) return;
+            
+            if (tours.length === 0) {
+                container.innerHTML = '<div class="no-results"><p>Туры не найдены</p><button class="btn btn-primary" onclick="resetTourFilters()">Сбросить фильтры</button></div>';
+                return;
+            }
+            
+            let html = '';
+            tours.forEach(function(tour) {
+                const inFav = isInFavorites(tour.id, 'tour');
+                html += '<div class="tour-card" data-tour-id="' + tour.id + '">' +
+                    (tour.discount ? '<div class="tour-badge">-' + tour.discount + '%</div>' : '') +
+                    '<div class="tour-image" style="background-image: url(\'' + tour.image + '\')">' +
+                    '<button class="btn-favorite ' + (inFav ? 'active' : '') + '" data-id="' + tour.id + '" data-type="tour">' +
+                    (inFav ? '\u2665' : '\u2661') + '</button></div>' +
+                    '<div class="tour-content">' +
+                    '<h3>' + tour.name + '</h3>' +
+                    '<p class="tour-hotel">' + tour.hotel + '</p>' +
+                    '<div class="tour-details"><span>' + tour.duration + ' ночей</span><span>' + tour.nutrition + '</span></div>' +
+                    '<div class="tour-price">';
+                if (tour.oldPrice) {
+                    html += '<span class="old-price">' + tour.oldPrice.toLocaleString('ru-RU') + ' ₽</span>';
+                }
+                html += '<span class="new-price">' + tour.price.toLocaleString('ru-RU') + ' ₽</span></div>' +
+                    '<a href="booking.html?id=' + tour.id + '&type=tour" class="btn-tour">Забронировать</a>' +
+                    '</div></div>';
+            });
+            container.innerHTML = html;
+        }
+        
+        function resetTourFilters() {
+            tourFilters = { destination: '', nights: '', priceMin: '', priceMax: '', sort: 'popular' };
+            document.getElementById('filter-destination').value = '';
+            document.getElementById('filter-nights').value = '';
+            document.getElementById('filter-price-min').value = '';
+            document.getElementById('filter-price-max').value = '';
+            document.getElementById('filter-sort').value = 'popular';
+            applyTourFilters();
+        }
+        
+        function updateFavoritesOnPage() {
+            const favCount = document.querySelector('.favorites-count');
+            if (favCount) {
+                const favorites = JSON.parse(localStorage.getItem('sonestaFavorites') || '{}');
+                const count = Object.keys(favorites).length;
+                favCount.textContent = count;
+                favCount.style.display = count > 0 ? 'flex' : 'none';
+            }
+        }
+    </script>
 </body>
 </html>
-
-
-

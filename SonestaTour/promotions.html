@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Акции — Sonesta Tour</title>
-    <meta name="description" content="Акции Sonesta Tour: раннее бронирование, скидки, подарочные сертификаты и спецпредложения.">
+    <meta name="description" content="Акции и специальные предложения от Sonesta Tour: раннее бронирование, горящие туры, рассрочка.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="data.js"></script>
+    <script src="main.js"></script>
 </head>
 <body>
     <header class="header">
@@ -50,55 +52,114 @@
                     <span>Акции</span>
                 </div>
                 <h2 class="page-title">Акции и спецпредложения</h2>
-                <p class="page-subtitle">Скидки, раннее бронирование, подарочные сертификаты и выгодные условия.</p>
+                <p class="page-subtitle">Выгодные предложения для незабываемого отдыха. Экономьте с Sonesta Tour!</p>
+            </div>
+        </section>
+
+        <!-- Promo Countdown Banner -->
+        <section class="promo-countdown">
+            <div class="container">
+                <div class="countdown-content">
+                    <div class="countdown-text">
+                        <h3>Успейте забронировать!</h3>
+                        <p>Скидки до 30% на горящие туры. Предложение ограничено!</p>
+                    </div>
+                    <div class="countdown-timer" id="countdown-timer">
+                        <div class="timer-unit">
+                            <span class="timer-value" id="timer-days">00</span>
+                            <span class="timer-label">дней</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-value" id="timer-hours">00</span>
+                            <span class="timer-label">часов</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-value" id="timer-minutes">00</span>
+                            <span class="timer-label">минут</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-value" id="timer-seconds">00</span>
+                            <span class="timer-label">секунд</span>
+                        </div>
+                    </div>
+                    <a href="tours.html" class="btn btn-primary">Выбрать тур</a>
+                </div>
             </div>
         </section>
 
         <section class="page-content">
             <div class="container">
+                <!-- Featured Promotions -->
+                <div class="promo-featured" id="promo-featured"></div>
+                
+                <!-- All Promotions -->
+                <h2 class="section-title" style="text-align:left; margin-top:50px;">Все акции</h2>
+                <div class="promotions-grid" id="promotions-grid"></div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3>Подпишитесь на спецпредложения</h3>
+                        <p>Получайте эксклюзивные скидки и новости первыми!</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Ваш email" class="form-control" required>
+                        <button type="submit" class="btn btn-primary">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="page-content" style="background:var(--bg-light);">
+            <div class="container">
+                <h2 class="section-title">Как использовать акции</h2>
                 <div class="content-grid">
                     <article class="info-card">
-                        <h3>Раннее бронирование</h3>
-                        <p>Планируйте отдых заранее и получайте скидку до 15%.</p>
-                        <div class="tag-row">
-                            <span class="tag">-15%</span>
-                            <span class="tag">Лето</span>
-                            <span class="tag">Зима</span>
-                        </div>
+                        <h3>1. Выберите акцию</h3>
+                        <p>Ознакомьтесь со всеми предложениями и выберите подходящее вам.</p>
                     </article>
                     <article class="info-card">
-                        <h3>Горящие туры</h3>
-                        <p>Лучшие цены на ближайшие даты и популярные направления.</p>
-                        <div class="tag-row">
-                            <span class="tag">Last minute</span>
-                            <span class="tag">Скидки</span>
-                            <span class="tag">Хиты</span>
-                        </div>
+                        <h3>2. Свяжитесь с нами</h3>
+                        <p>Позвоните или напишите, сообщив код акции и желаемые даты.</p>
                     </article>
                     <article class="info-card">
-                        <h3>Подарочные сертификаты</h3>
-                        <p>Подарите впечатления: сертификат на путешествие или отдых.</p>
-                        <div class="tag-row">
-                            <span class="tag">Подарок</span>
-                            <span class="tag">Любая сумма</span>
-                            <span class="tag">Красиво</span>
-                        </div>
+                        <h3>3. Забронируйте</h3>
+                        <p>Мы подтвердим бронирование и применим скидку автоматически!</p>
                     </article>
                 </div>
 
                 <div class="callout">
                     <div class="callout-body">
-                        <h3>Хотите получить актуальные акции?</h3>
-                        <p>Свяжитесь с нами — подберём предложение под ваши даты и бюджет.</p>
+                        <h3>Остались вопросы?</h3>
+                        <p>Наши менеджеры помогут подобрать лучшее предложение и ответят на все вопросы.</p>
                     </div>
                     <div class="callout-actions">
                         <a class="btn btn-primary" href="contacts.html">Связаться</a>
-                        <a class="btn btn-ghost" href="tours.html">Подобрать тур</a>
+                        <a class="btn btn-ghost" href="tours.html">Смотреть туры</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Success Modal -->
+    <div class="modal" id="newsletter-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(document.getElementById('newsletter-modal'))">×</button>
+            <div class="success-content">
+                <div class="success-icon">✓</div>
+                <h2>Подписка оформлена!</h2>
+                <p>Вы будете получать лучшие предложения и скидки на email.</p>
+                <a href="promotions.html" class="btn btn-primary">Отлично</a>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -142,8 +203,125 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderPromotions();
+            initCountdown();
+            initNewsletter();
+        });
+        
+        function renderPromotions() {
+            const data = window.SonestaData;
+            if (!data || !data.promotions) return;
+            
+            const featured = data.promotions.filter(p => p.discount > 0).slice(0, 2);
+            const featuredContainer = document.getElementById('promo-featured');
+            let featuredHtml = '<div class="featured-grid">';
+            
+            featured.forEach(function(promo) {
+                featuredHtml += '<div class="promo-featured-card promo-' + promo.color + '">' +
+                    '<div class="promo-badge-lg">' + promo.badge + '</div>' +
+                    '<div class="promo-featured-content">' +
+                    '<h3>' + promo.name + '</h3>' +
+                    '<p class="promo-title">' + promo.title + '</p>' +
+                    '<p class="promo-description">' + promo.description + '</p>';
+                
+                if (promo.features && promo.features.length > 0) {
+                    featuredHtml += '<ul class="promo-features-list">';
+                    promo.features.forEach(function(f) {
+                        featuredHtml += '<li>' + f + '</li>';
+                    });
+                    featuredHtml += '</ul>';
+                }
+                
+                if (promo.discount > 0) {
+                    featuredHtml += '<div class="promo-discount">' + promo.discount + '% скидка</div>';
+                }
+                
+                featuredHtml += '<a href="contacts.html" class="btn btn-primary">Подробнее</a>' +
+                    '</div><div class="promo-featured-image" style="background-image: url(\'' + promo.image + '\')"></div>' +
+                    '</div>';
+            });
+            
+            featuredHtml += '</div>';
+            featuredContainer.innerHTML = featuredHtml;
+            
+            const gridContainer = document.getElementById('promotions-grid');
+            let gridHtml = '';
+            
+            data.promotions.forEach(function(promo) {
+                gridHtml += '<div class="promotion-card-full promo-' + promo.color + '">' +
+                    '<div class="promo-header">' +
+                    '<span class="promo-badge">' + promo.badge + '</span>';
+                
+                if (promo.discount > 0) {
+                    gridHtml += '<span class="promo-discount-badge">-' + promo.discount + '%</span>';
+                }
+                
+                gridHtml += '</div>' +
+                    '<div class="promo-image" style="background-image: url(\'' + promo.image + '\')"></div>' +
+                    '<div class="promo-body">' +
+                    '<h3>' + promo.name + '</h3>' +
+                    '<p class="promo-subtitle">' + promo.title + '</p>' +
+                    '<p class="promo-text">' + promo.description + '</p>';
+                
+                if (promo.features && promo.features.length > 0) {
+                    gridHtml += '<ul class="promo-features-list">';
+                    promo.features.forEach(function(f) {
+                        gridHtml += '<li>' + f + '</li>';
+                    });
+                    gridHtml += '</ul>';
+                }
+                
+                if (promo.validUntil) {
+                    gridHtml += '<p class="promo-validity"><strong>Действительно до:</strong> ' + formatDateLong(promo.validUntil) + '</p>';
+                }
+                
+                gridHtml += '</div><div class="promo-footer">' +
+                    '<a href="contacts.html" class="btn btn-primary">Забронировать</a>' +
+                    '</div></div>';
+            });
+            
+            gridContainer.innerHTML = gridHtml;
+        }
+        
+        function formatDateLong(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+        
+        function initCountdown() {
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 7);
+            
+            function updateTimer() {
+                const now = new Date();
+                const diff = endDate - now;
+                
+                if (diff <= 0) return;
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('timer-days').textContent = String(days).padStart(2, '0');
+                document.getElementById('timer-hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('timer-minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('timer-seconds').textContent = String(seconds).padStart(2, '0');
+            }
+            
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+        
+        function initNewsletter() {
+            document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                openModal('newsletter-modal');
+            });
+        }
+    </script>
 </body>
 </html>
-
-
-

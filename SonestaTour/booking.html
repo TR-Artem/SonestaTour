@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование — Sonesta Tour</title>
+    <meta name="description" content="Бронирование тура, отеля или круиза в Sonesta Tour">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="logo">
+                        <h1><a class="logo-link" href="index.html">Sonesta Tour</a></h1>
+                    </div>
+                    <div class="header-contacts">
+                        <a href="tel:+79217558852" class="phone">+7 (921) 755-88-52</a>
+                        <a href="mailto:info@sonestatour.ru" class="email">info@sonestatour.ru</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="tours.html">Туры</a></li>
+                    <li><a href="hotels.html">Отели</a></li>
+                    <li><a href="cruises.html">Круизы</a></li>
+                    <li><a href="flights.html">Авиабилеты</a></li>
+                    <li><a href="promotions.html">Акции</a></li>
+                    <li><a href="offices.html">Офисы</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="index.html">Главная</a>
+                    <span class="sep">/</span>
+                    <span>Бронирование</span>
+                </div>
+                <h2 class="page-title">Бронирование</h2>
+                <p class="page-subtitle">Заполните форму и мы свяжемся с вами для подтверждения</p>
+            </div>
+        </section>
+
+        <section class="page-content">
+            <div class="container">
+                <div class="booking-container">
+                    <!-- Booking Summary -->
+                    <div class="booking-summary" id="booking-summary">
+                        <div class="summary-card">
+                            <h3>Детали бронирования</h3>
+                            <div id="booking-details">
+                                <p class="loading-text">Загрузка данных...</p>
+                            </div>
+                            <div class="summary-total">
+                                <span>Итого:</span>
+                                <strong id="total-price">0 ₽</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card info-card">
+                            <h4>Что входит в стоимость</h4>
+                            <ul class="included-list">
+                                <li>Перелёт / Трансфер</li>
+                                <li>Проживание в выбранном отеле</li>
+                                <li>Питание по выбранному типу</li>
+                                <li>Медицинская страховка</li>
+                                <li>Трансфер аэропорт-отель-аэропорт</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="summary-card info-card">
+                            <h4>Как происходит бронирование</h4>
+                            <ol class="booking-steps">
+                                <li>Заполните форму и отправьте заявку</li>
+                                <li>Наш менеджер свяжется с вами в течение 30 минут</li>
+                                <li>Подтвердите бронирование и оплатите</li>
+                                <li>Получите документы на email</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Booking Form -->
+                    <div class="booking-form-container">
+                        <form class="booking-form" id="booking-form" action="#" method="post">
+                            <h3>Контактные данные</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Имя и фамилия *</label>
+                                    <input type="text" id="name" name="name" class="form-control" required placeholder="Как в загранпаспорте">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" class="form-control" required placeholder="Для документов">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Телефон *</label>
+                                    <input type="tel" id="phone" name="phone" class="form-control" required placeholder="+7 (___) ___-__-__">
+                                </div>
+                            </div>
+                            
+                            <h3>Детали поездки</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date_from">Дата вылета</label>
+                                    <input type="date" id="date_from" name="date_from" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nights">Количество ночей</label>
+                                    <select id="nights" name="nights" class="form-control">
+                                        <option value="3">3 ночи</option>
+                                        <option value="5">5 ночей</option>
+                                        <option value="7" selected>7 ночей</option>
+                                        <option value="10">10 ночей</option>
+                                        <option value="14">14 ночей</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="guests">Взрослых</label>
+                                    <select id="guests" name="guests" class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2" selected>2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="children">Детей</label>
+                                    <select id="children" name="children" class="form-control">
+                                        <option value="0">Без детей</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="room_type">Тип номера</label>
+                                <select id="room_type" name="room_type" class="form-control">
+                                    <option value="standard">Standard</option>
+                                    <option value="deluxe">Deluxe</option>
+                                    <option value="suite">Suite</option>
+                                    <option value="family">Family</option>
+                                </select>
+                            </div>
+                            
+                            <h3>Дополнительно</h3>
+                            
+                            <div class="form-group">
+                                <label for="requests">Особые пожелания</label>
+                                <textarea id="requests" name="requests" class="form-control" rows="3" placeholder="Номер с видом на море, питание без мяса, ранний заезд и т.д."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="insurance" checked> Добавить страховку от невыезда (+2000 ₽)
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="newsletter"> Подписаться на спецпредложения
+                                </label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary btn-large">Отправить заявку</button>
+                                <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(document.getElementById('success-modal'))">×</button>
+            <div class="success-content">
+                <div class="success-icon">✓</div>
+                <h2>Заявка отправлена!</h2>
+                <p>Наш менеджер свяжется с вами в течение 30 минут для подтверждения бронирования.</p>
+                <a href="index.html" class="btn btn-primary">На главную</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sonesta Tour</h3>
+                    <p>Ваш надёжный партнёр в мире путешествий</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="tours.html">Туры</a></li>
+                        <li><a href="hotels.html">Отели</a></li>
+                        <li><a href="cruises.html">Круизы</a></li>
+                        <li><a href="flights.html">Авиабилеты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="about.html">О компании</a></li>
+                        <li><a href="promotions.html">Акции</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="offices.html">Офисы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>+7 (921) 755-88-52</p>
+                    <p>info@sonestatour.ru</p>
+                    <p>СПб, ул. Доблести, 26</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sonesta Tour. Все права защищены.</p>
+                <div class="footer-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const itemId = urlParams.get('id');
+            const itemType = urlParams.get('type') || 'tour';
+            const data = window.SonestaData;
+            
+            if (!data) return;
+            
+            let item = null;
+            let itemName = '';
+            
+            if (itemType === 'tour' && data.tours) {
+                item = data.tours.find(t => t.id === itemId);
+                itemName = item ? item.name : '';
+            } else if (itemType === 'hotel' && data.hotels) {
+                item = data.hotels.find(h => h.id === itemId);
+                itemName = item ? item.name : '';
+            } else if (itemType === 'cruise' && data.cruises) {
+                item = data.cruises.find(c => c.id === itemId);
+                itemName = item ? item.name : '';
+            }
+            
+            const detailsContainer = document.getElementById('booking-details');
+            const totalPriceEl = document.getElementById('total-price');
+            
+            if (item) {
+                let detailsHtml = '<div class="booking-item-image" style="background-image:url(\'' + (item.image || item.images[0]) + '\')"></div>';
+                detailsHtml += '<h4>' + itemName + '</h4>';
+                detailsHtml += '<p class="booking-item-location">' + item.location + '</p>';
+                
+                if (itemType === 'tour') {
+                    detailsHtml += '<div class="booking-item-details">' +
+                        '<span>Отель: ' + item.hotel + '</span>' +
+                        '<span>' + item.duration + ' ночей</span>' +
+                        '<span>' + item.nutrition + '</span>' +
+                        '</div>';
+                    totalPriceEl.textContent = item.price.toLocaleString('ru-RU') + ' ₽';
+                } else if (itemType === 'hotel') {
+                    detailsHtml += '<div class="booking-item-details">' +
+                        '<span>' + '\u2605'.repeat(item.stars) + '</span>' +
+                        '<span>Рейтинг: ' + item.rating + '/5</span>' +
+                        '</div>';
+                    totalPriceEl.textContent = 'от ' + item.price.toLocaleString('ru-RU') + ' ₽/ночь';
+                } else if (itemType === 'cruise') {
+                    detailsHtml += '<div class="booking-item-details">' +
+                        '<span>Лайнер: ' + item.ship + '</span>' +
+                        '<span>' + item.duration + ' дней</span>' +
+                        '</div>';
+                    totalPriceEl.textContent = 'от ' + item.price.toLocaleString('ru-RU') + ' ₽';
+                }
+                
+                detailsHtml += '<input type="hidden" name="item_id" value="' + itemId + '">';
+                detailsHtml += '<input type="hidden" name="item_type" value="' + itemType + '">';
+                detailsHtml += '<input type="hidden" name="item_name" value="' + itemName + '">';
+                detailsHtml += '<input type="hidden" name="item_price" value="' + item.price + '">';
+                
+                detailsContainer.innerHTML = detailsHtml;
+            } else {
+                detailsContainer.innerHTML = '<p class="error-text">Товар не найден. <a href="index.html">Вернуться на главную</a></p>';
+            }
+            
+            // Form submission
+            document.getElementById('booking-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const form = e.target;
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach(function(value, key) {
+                    data[key] = value;
+                });
+                
+                // Validation
+                if (!data.name || data.name.length < 2) {
+                    showNotification('Введите ваше имя', 'error');
+                    return;
+                }
+                if (!data.phone || data.phone.length < 10) {
+                    showNotification('Введите номер телефона', 'error');
+                    return;
+                }
+                if (!data.email || !data.email.includes('@')) {
+                    showNotification('Введите корректный email', 'error');
+                    return;
+                }
+                
+                // Save to session
+                sessionStorage.setItem('lastBooking', JSON.stringify(data));
+                
+                // Show success
+                openModal('success-modal');
+            });
+        });
+    </script>
+</body>
+</html>
