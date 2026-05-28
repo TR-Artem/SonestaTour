@@ -257,6 +257,108 @@
             </div>
         </section>
 
+        <!-- Flight Booking Modal -->
+        <div class="modal-overlay" id="flight-booking-modal">
+            <div class="modal-box modal-detail">
+                <button class="modal-close" id="flight-modal-close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+                <div class="modal-detail-header">
+                    <div class="modal-detail-image" id="flight-modal-image"></div>
+                    <div class="modal-detail-badges">
+                        <span class="modal-detail-discount" id="flight-modal-discount"></span>
+                        <span class="modal-detail-badge" id="flight-modal-badge"></span>
+                    </div>
+                </div>
+                <div class="modal-detail-content">
+                    <h2 id="flight-modal-title"></h2>
+                    <p class="modal-detail-route" id="flight-modal-route"></p>
+                    
+                    <div class="modal-cruise-info">
+                        <div class="modal-cruise-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                            </svg>
+                            <div>
+                                <span class="info-label">Время в пути</span>
+                                <span class="info-value" id="flight-modal-duration"></span>
+                            </div>
+                        </div>
+                        <div class="modal-cruise-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <div>
+                                <span class="info-label">Дата вылета</span>
+                                <span class="info-value" id="flight-modal-date"></span>
+                            </div>
+                        </div>
+                        <div class="modal-cruise-info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 21h18M5 21V7l8-4 8 4v14"/>
+                            </svg>
+                            <div>
+                                <span class="info-label">Самолёт</span>
+                                <span class="info-value" id="flight-modal-aircraft"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-detail-price">
+                        <span class="price-label">Стоимость</span>
+                        <div class="price-values">
+                            <span class="price-old" id="flight-modal-old-price"></span>
+                            <span class="price-new" id="flight-modal-price"></span>
+                        </div>
+                        <span class="price-note">за 1 билет</span>
+                    </div>
+                    
+                    <div class="modal-cruise-form">
+                        <h4>Оставить заявку</h4>
+                        <form id="flight-booking-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Ваше имя</label>
+                                    <input type="text" name="name" placeholder="Иван Иванов" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Телефон</label>
+                                    <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" name="email" placeholder="email@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Количество билетов</label>
+                                    <select name="tickets" required>
+                                        <option value="">Выберите</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Комментарий</label>
+                                <textarea name="comment" placeholder="Особые пожелания, выбор места..." rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+                            <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Benefits -->
         <section class="benefits-section">
             <div class="container">
@@ -359,6 +461,7 @@
             initFilters();
             initPassengers();
             initMobileFilters();
+            initFlightBookingModal();
             renderFlights();
         });
 
@@ -514,11 +617,11 @@
                         </div>
                     </div>
                     <div class="ticket-price">
-                        ${f.oldPrice ? '<span class="price-old">' + f.oldPrice.toLocaleString() + ' ₽</span>' : ''}
-                        <span class="price-new">' + f.price.toLocaleString() + ' ₽</span>
+                        ${f.oldPrice ? '<span class="price-old">' + f.oldPrice.toLocaleString('ru-RU') + ' ₽</span>' : ''}
+                        <span class="price-new">` + f.price.toLocaleString('ru-RU') + ` ₽</span>
                         <span class="price-label">за 1 билет</span>
-                        <span class="price-total">Итого: ' + total.toLocaleString() + ' ₽</span>
-                        <a href="booking.html?id=${f.id}&type=flight" class="btn btn-primary">Выбрать</a>
+                        <span class="price-total">Итого: ` + total.toLocaleString('ru-RU') + ` ₽</span>
+                        <button class="btn btn-primary" onclick="openFlightBooking('${f.id}')">Выбрать</button>
                     </div>
                 </div>`;
             });
@@ -537,6 +640,65 @@
         function formatDate(str) {
             const d = new Date(str);
             return d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' });
+        }
+
+        function initFlightBookingModal() {
+            document.getElementById('flight-modal-close').addEventListener('click', function() {
+                document.getElementById('flight-booking-modal').classList.remove('show');
+            });
+            
+            document.getElementById('flight-booking-modal').addEventListener('click', function(e) {
+                if (e.target === this) this.classList.remove('show');
+            });
+            
+            document.getElementById('flight-booking-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                document.getElementById('flight-booking-modal').classList.remove('show');
+                alert('Заявка отправлена! Наш менеджер свяжется с вами в ближайшее время.');
+                this.reset();
+            });
+        }
+
+        function openFlightBooking(flightId) {
+            const data = window.SonestaData;
+            if (!data || !data.flights) return;
+            
+            const flight = data.flights.find(f => f.id === flightId);
+            if (!flight) return;
+            
+            document.getElementById('flight-modal-image').style.backgroundImage = "url('" + flight.image + "')";
+            document.getElementById('flight-modal-title').textContent = flight.airline;
+            document.getElementById('flight-modal-route').textContent = flight.from + ' → ' + flight.to;
+            document.getElementById('flight-modal-duration').textContent = flight.duration;
+            document.getElementById('flight-modal-date').textContent = formatDateFull(flight.departureDate);
+            document.getElementById('flight-modal-aircraft').textContent = flight.aircraft;
+            
+            const badge = document.getElementById('flight-modal-badge');
+            badge.textContent = flight.airline;
+            badge.className = 'modal-detail-badge primary';
+            
+            if (flight.discount) {
+                const discount = document.getElementById('flight-modal-discount');
+                discount.innerHTML = '-' + flight.discount + '%';
+                discount.style.display = '';
+            } else {
+                document.getElementById('flight-modal-discount').style.display = 'none';
+            }
+            
+            if (flight.oldPrice) {
+                document.getElementById('flight-modal-old-price').innerHTML = flight.oldPrice.toLocaleString('ru-RU') + ' ₽';
+                document.getElementById('flight-modal-old-price').style.display = '';
+            } else {
+                document.getElementById('flight-modal-old-price').style.display = 'none';
+            }
+            document.getElementById('flight-modal-price').innerHTML = flight.price.toLocaleString('ru-RU') + ' ₽';
+            
+            document.getElementById('flight-booking-modal').classList.add('show');
+        }
+
+        function formatDateFull(str) {
+            const d = new Date(str);
+            return d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
         }
     </script>
 </body>
