@@ -7076,3 +7076,19 @@ textarea::placeholder {
         margin-left: 0;
     }
 }
+
+/* ===== CART NOTIFICATION ===== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cart-notification {
+    font-family: inherit;
+}
