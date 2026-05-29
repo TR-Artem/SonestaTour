@@ -7092,3 +7092,15 @@ textarea::placeholder {
 .cart-notification {
     font-family: inherit;
 }
+
+/* ===== SLIDE IN ANIMATION ===== */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="data.js"></script>
+    <script src="email-service.js"></script>
     <script src="main.js"></script>
     <script src="interactions.js"></script>
 </head>
@@ -640,11 +641,41 @@
                 if (e.target === this) this.classList.remove('show');
             });
             
-            document.getElementById('cruise-booking-form').addEventListener('submit', function(e) {
+            document.getElementById('cruise-booking-form').addEventListener('submit', async function(e) {
                 e.preventDefault();
-                document.getElementById('cruise-booking-modal').classList.remove('show');
-                document.getElementById('booking-success-modal').classList.add('show');
-                this.reset();
+                
+                const form = this;
+                const formData = {
+                    name: form.querySelector('[name="name"]').value,
+                    phone: form.querySelector('[name="phone"]').value,
+                    email: form.querySelector('[name="email"]').value,
+                    guests: form.querySelector('[name="guests"]')?.value || '1',
+                    cabin: form.querySelector('[name="cabin"]')?.value || '',
+                    nutrition: form.querySelector('[name="nutrition"]')?.value || '',
+                    comment: form.querySelector('[name="comment"]').value
+                };
+                
+                const cruiseId = form.dataset.cruiseId || '';
+                const cruiseName = document.getElementById('cruise-modal-title')?.textContent || 'Круиз';
+                
+                // Disable button during submission
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = 'Отправка...';
+                
+                try {
+                    await sendApplicationEmail(formData, 'Круиз', cruiseName);
+                    
+                    document.getElementById('cruise-booking-modal').classList.remove('show');
+                    showApplicationSuccess();
+                    form.reset();
+                } catch (err) {
+                    alert('Ошибка при отправке заявки. Пожалуйста, позвоните нам.');
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = originalText;
+                }
             });
         }
 
