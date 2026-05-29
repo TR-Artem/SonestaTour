@@ -256,6 +256,87 @@
         </div>
     </div>
 
+    <!-- Promo Detail Modal -->
+    <div class="modal-overlay" id="promo-detail-modal">
+        <div class="modal-box modal-detail">
+            <button class="modal-close" id="promo-modal-close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="modal-detail-header">
+                <div class="modal-detail-image" id="modal-detail-image"></div>
+                <div class="modal-detail-badges">
+                    <span class="modal-detail-discount" id="modal-detail-discount"></span>
+                    <span class="modal-detail-badge" id="modal-detail-badge"></span>
+                </div>
+            </div>
+            <div class="modal-detail-content">
+                <h2 id="modal-detail-title"></h2>
+                <p class="modal-detail-desc" id="modal-detail-desc"></p>
+                
+                <div class="modal-detail-info">
+                    <div class="modal-detail-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                        </svg>
+                        <div>
+                            <span class="info-label">Срок действия</span>
+                            <span class="info-value" id="modal-detail-date"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-detail-features" id="modal-detail-features"></div>
+                
+                <div class="modal-detail-terms" id="modal-detail-terms">
+                    <h4>Условия акции</h4>
+                    <ul id="modal-detail-terms-list"></ul>
+                </div>
+                
+                <div class="modal-detail-form">
+                    <h4>Оставить заявку</h4>
+                    <form id="promo-application-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Ваше имя</label>
+                                <input type="text" name="name" placeholder="Иван Иванов" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Телефон</label>
+                                <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" placeholder="email@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Количество человек</label>
+                                <select name="guests" required>
+                                    <option value="">Выберите</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6+">6 и более</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Комментарий</label>
+                            <textarea name="comment" placeholder="Удобные даты, вопросы по акции..." rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+                        <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -303,6 +384,7 @@
             initCountdown();
             initNewsletter();
             initFilters();
+            initPromoDetailModal();
         });
 
         function renderFeaturedPromo() {
@@ -374,7 +456,7 @@
                                     '</svg>' +
                                     dateText +
                                 '</div>' +
-                                '<a href="contacts.html" class="btn btn-sm btn-outline">Подробнее</a>' +
+                                '<button class="btn btn-sm btn-outline" onclick="openPromoDetail(\'' + promo.id + '\')">Подробнее</button>' +
                             '</div>' +
                         '</div>' +
                     '</div>';
@@ -462,6 +544,92 @@
                     document.getElementById('promotions-count').textContent = count + ' предложений';
                 });
             });
+        }
+
+        function initPromoDetailModal() {
+            document.getElementById('promo-modal-close').addEventListener('click', function() {
+                document.getElementById('promo-detail-modal').classList.remove('show');
+            });
+            
+            document.getElementById('promo-detail-modal').addEventListener('click', function(e) {
+                if (e.target === this) this.classList.remove('show');
+            });
+            
+            document.getElementById('promo-application-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                document.getElementById('promo-detail-modal').classList.remove('show');
+                document.getElementById('success-modal').classList.add('show');
+                this.reset();
+            });
+        }
+
+        function openPromoDetail(promoId) {
+            const data = window.SonestaData;
+            if (!data || !data.promotions) return;
+            
+            const promo = data.promotions.find(p => p.id === promoId);
+            if (!promo) return;
+            
+            document.getElementById('modal-detail-image').style.backgroundImage = "url('" + promo.image + "')";
+            
+            if (promo.discount > 0) {
+                document.getElementById('modal-detail-discount').innerHTML = '-' + promo.discount + '%';
+                document.getElementById('modal-detail-discount').style.display = '';
+            } else {
+                document.getElementById('modal-detail-discount').style.display = 'none';
+            }
+            
+            const badge = document.getElementById('modal-detail-badge');
+            badge.textContent = promo.badge;
+            badge.className = 'modal-detail-badge ' + promo.color;
+            
+            document.getElementById('modal-detail-title').textContent = promo.name;
+            document.getElementById('modal-detail-desc').textContent = promo.description;
+            document.getElementById('modal-detail-date').textContent = promo.validUntil ? formatDateFull(promo.validUntil) : 'Бессрочно';
+            
+            const featuresHtml = promo.features.map(f => 
+                '<span class="modal-feature">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
+                '<polyline points="20 6 9 17 4 12"/>' +
+                '</svg>' + f + '</span>'
+            ).join('');
+            document.getElementById('modal-detail-features').innerHTML = '<h4>Преимущества</h4><div class="modal-features-list">' + featuresHtml + '</div>';
+            
+            const terms = generateTerms(promo);
+            document.getElementById('modal-detail-terms-list').innerHTML = terms.map(t => '<li>' + t + '</li>').join('');
+            
+            document.getElementById('promo-detail-modal').classList.add('show');
+        }
+
+        function formatDateFull(dateStr) {
+            if (!dateStr) return 'бессрочно';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        function generateTerms(promo) {
+            const terms = [];
+            if (promo.discount > 0) {
+                terms.push('Скидка ' + promo.discount + '% применяется автоматически при бронировании');
+            }
+            if (promo.id === 'early-booking') {
+                terms.push('Бронирование должно быть сделано минимум за 60 дней до вылета');
+                terms.push('Акция распространяется на все направления');
+            } else if (promo.id === 'last-minute') {
+                terms.push('Вылет в течение 14 дней с момента бронирования');
+                terms.push('Количество мест ограничено');
+            } else if (promo.id === 'installment') {
+                terms.push('Рассрочка доступна на срок до 12 месяцев');
+                terms.push('Без переплат и первоначального взноса');
+            } else if (promo.id === 'family') {
+                terms.push('Дети до 12 лет размещаются бесплатно');
+                terms.push('Акция действует в семейных номерах');
+            } else {
+                terms.push('Акция не суммируется с другими спецпредложениями');
+                terms.push('Необходимо предъявить промокод при звонке');
+            }
+            terms.push('Для применения скидки свяжитесь с нами по телефону');
+            return terms;
         }
     </script>
 </body>
